@@ -1,0 +1,11 @@
+{
+  "name": "MOTMBot",
+  "version": "1.0.0",
+  "description": "All-in-one Discord Bot for Meme of the Month Discord Server",
+  "main": "index.js",
+  "author": "AcidEpicice#2716",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "edit-json-file": "^1.2.1"
+  }
+}

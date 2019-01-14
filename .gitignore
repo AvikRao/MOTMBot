@@ -1,0 +1,5 @@
+# Ignore authorization token (sensitive data)
+auth.json
+
+# Ignore giant node_modules directory, instead use package-lock.json
+node_modules
