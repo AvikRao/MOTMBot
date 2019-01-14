@@ -11,15 +11,18 @@ let file = editJsonFile(`${__dirname}/info.json`, {
 // listen for input in console in case I want to send a message manually
 var stdin = process.openStdin(); 
 stdin.addListener("data", function(d) {
-   // note:  d is an object, and when converted to a string it will
-   // end with a linefeed.  so we (rather crudely) account for that  
-   // with toString() and then trim() 
+
    console.log("you entered: [" + 
      d.toString().trim() + "]");
      
    client.channels.get('504057505266270210').send(d.toString().trim());
    
 });   
+
+// Sleep function in case it's needed
+function sleep (time) {
+   return new Promise((resolve) => setTimeout(resolve, time));
+}
 
 // Let console know the bot's started
 client.on('ready', () => {
@@ -42,6 +45,7 @@ client.on('guildMemberAdd', gm => {
 client.on('message', msg => {
    console.log(`Message sent in ${msg.channel.name} which has id ${msg.id} and content ${msg.content}.`); // Let console know someone's sent a message
 
+   // Give them a point for chatting
    for (let i = 1; i <= file.get("usercount"); i++) {
       if (file.get(`user${i}.id`) == msg.author.id) {
          file.set(`user${i}.points`, file.get(`user${i}.points`) + 1);
@@ -52,6 +56,7 @@ client.on('message', msg => {
    // If the message is a command
    if (msg.content.substring(0, file.get("prefix").length) == file.get("prefix")) {
       
+      // check for arguments
       let firstspace = msg.content.indexOf(" ");
       let truefirstspace = firstspace;
       if (firstspace == -1) firstspace = msg.content.length;
@@ -59,6 +64,7 @@ client.on('message', msg => {
       switch (msg.content.substring(file.get("prefix").length, firstspace)) {
          
          case "points" :
+            // If someone wants to know someone else's points
             if (msg.mentions.members.size > 0) {
                for (let i = 1; i <= file.get("usercount"); i++) {
                   if (file.get(`user${i}.id`) == msg.mentions.members.first().id) {
@@ -66,6 +72,8 @@ client.on('message', msg => {
                      break;
                   }
                }
+            
+            // Their own points
             } else {
                let userid = "";
                for (let i = 1; i <= file.get("usercount"); i++) {
@@ -76,6 +84,8 @@ client.on('message', msg => {
                }
             }
             break;
+         
+         // Changing the prefix
          case "prefix" :
             if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) msg.reply("You are not an admin!");
             else if (truefirstspace == -1) msg.reply("You need to specify a new prefix!");
@@ -86,7 +96,8 @@ client.on('message', msg => {
                   .catch(console.error);
             }
             break;
-            
+           
+         // Deleting multiple messages in a channel
          case "purge" :
             if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) msg.reply("You are not an admin!");
             else if (truefirstspace == -1) msg.reply("You need to specify an amount to purge!");
@@ -109,6 +120,7 @@ client.on('message', msg => {
          client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
       } else {
          msg.react('⬆')
+            .then(sleep(1500)) // Wait a bit before second reaction so discord doesn't confuse reaction order
             .then(msg.react('⬇'))
             .then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
             .catch(console.error);
@@ -117,8 +129,12 @@ client.on('message', msg => {
    }
 });
 
+// If someone reacts to a meme
 client.on("messageReactionAdd", (reaction, user) => {
+
    if (reaction.message.channel.id == "531170085482659851") {
+
+      // Give points to memer if their meme was upvoted
       if (reaction.emoji.toString() == '⬆') {
          console.log(user + " upvoted message " + reaction.message.id);
          let authorid = reaction.message.author.id;
@@ -129,6 +145,8 @@ client.on("messageReactionAdd", (reaction, user) => {
             }
          }
       }
+
+      // Take points from memer if their meme was downvoted
       if (reaction.emoji.toString() == '⬇') {
          console.log(user + " upvoted message " + reaction.message.id);
          let authorid = reaction.message.author.id;
@@ -142,5 +160,5 @@ client.on("messageReactionAdd", (reaction, user) => {
    }
 });
 
-// login to the bot
+// login to the bot (auth.json is in .gitignore as the token is sensitive data)
 client.login(auth.token);
