@@ -43,13 +43,15 @@ client.on('guildMemberAdd', gm => {
 
 // When someone sends a message
 client.on('message', msg => {
-   console.log(`Message sent in ${msg.channel.name} which has id ${msg.id} and content ${msg.content}.`); // Let console know someone's sent a message
+   console.log(`Message sent by ${msg.author.username} in ${msg.channel.name} which has id ${msg.id} and content ${msg.content}.`); // Let console know someone's sent a message
 
    // Give them a point for chatting
-   for (let i = 1; i <= file.get("usercount"); i++) {
-      if (file.get(`user${i}.id`) == msg.author.id) {
-         file.set(`user${i}.points`, file.get(`user${i}.points`) + 1);
-         break;
+   if (msg.author.id != client.user.id) {
+      for (let i = 1; i <= file.get("usercount"); i++) {
+         if (file.get(`user${i}.id`) == msg.author.id) {
+            file.set(`user${i}.points`, file.get(`user${i}.points`) + 1);
+            break;
+         }
       }
    }
    
@@ -108,6 +110,29 @@ client.on('message', msg => {
                   .catch(console.error)
             }
             break;
+
+         case "top" : // Falthrough
+         case "leaderboard" :
+            let toppeople = ["", "", "", "", ""];
+            let topvalues = [0, 0, 0, 0, 0];
+            for (let current = 0; current < 5; current ++) {
+               for (let i = 1; i <= file.get("usercount"); i++) { 
+                  if (!toppeople.includes(file.get(`user${i}.nickname`)) && file.get(`user${i}.points`) > topvalues[current]) {
+                     topvalues[current] = file.get(`user${i}.points`);
+                     toppeople[current] = file.get(`user${i}.nickname`);
+                  }
+               }
+            }
+            msg.reply({embed: {
+               author: {
+                  name: client.user.username,
+                  icon_url: client.user.avatarURL
+               },
+               color: 3447003,
+               title: "**Top 5 leaderboard**",
+               description: `1. ${toppeople[0]} - ${topvalues[0]} points \n2. ${toppeople[1]} - ${topvalues[1]} points \n3. ${toppeople[2]} - ${topvalues[2]} points \n4. ${toppeople[3]} - ${topvalues[3]} points \n4. ${toppeople[4]} - ${topvalues[4]} points`
+             }});
+            break;
       }
    }
     
@@ -120,8 +145,9 @@ client.on('message', msg => {
          client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
       } else {
          msg.react('⬆')
-            .then(sleep(1500)) // Wait a bit before second reaction so discord doesn't confuse reaction order
-            .then(msg.react('⬇'))
+            .then(async function (msg) { // Wait a bit before second reaction so discord doesn't confuse reaction order
+               await msg.react('⬇')
+            }) 
             .then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
             .catch(console.error);
          
