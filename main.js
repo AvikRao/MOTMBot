@@ -1,7 +1,10 @@
 const editJsonFile = require("edit-json-file");
 const auth = require("./auth.json");
+const trivia = require("./questions.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var player1 = null; var player2 = null;
+var challengeAccepted = false;
 
 // open JSON file for member properties
 let file = editJsonFile(`${__dirname}/info.json`, {
@@ -24,6 +27,17 @@ function sleep (time) {
    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+function challengereset () {
+   if (!challengeAccepted) {
+      for (let i = 1; i <= file.get("usercount"); i++) {
+         file.set(`user${i}.challenged`, false);
+      }
+      client.channels.get('504057505266270210').send(embed.setDescription(`${player1.user}, your challenge to ${player2.user} has expired. You may now re-challenge them or challenge someone else.`));
+      player1 = null;
+      player2 = null;
+   }
+}
+
 // Let console know the bot's started
 client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`);
@@ -44,7 +58,6 @@ client.on('guildMemberAdd', gm => {
 // When someone sends a message
 client.on('message', msg => {
    console.log(`Message sent by ${msg.author.username} in ${msg.channel.name} which has id ${msg.id} and content ${msg.content}.`); // Let console know someone's sent a message
-
    // Give them a point for chatting
    if (msg.author.id != client.user.id) {
       for (let i = 1; i <= file.get("usercount"); i++) {
@@ -89,11 +102,17 @@ client.on('message', msg => {
          
          // Changing the prefix
          case "prefix" :
-            if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) msg.reply("You are not an admin!");
-            else if (truefirstspace == -1) msg.reply("You need to specify a new prefix!");
+            if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) {
+               msg.reply(embed.setDescription("You are not an admin!"))
+                  .catch(console.error);
+            }
+            else if (truefirstspace == -1) {
+               msg.reply(embed.setDescription("You need to specify a new prefix!"))
+                  .catch(console.error);
+            }
             else {
                file.set("prefix", msg.content.substring(firstspace).trim());
-               msg.reply(`the new prefix is **${file.get("prefix")}**`)
+               msg.reply(embed.setDescription(`the new prefix is **${file.get("prefix")}**`))
                   .then(msg => console.log(`Prefix changed to ${file.get("prefix")}`))
                   .catch(console.error);
             }
@@ -102,16 +121,29 @@ client.on('message', msg => {
          // Deleting multiple messages in a channel
          case "purge" :
             if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) msg.reply("You are not an admin!");
-            else if (truefirstspace == -1) msg.reply("You need to specify an amount to purge!");
-            else {
-               let amount = parseInt(msg.content.substring(firstspace).trim());
+            else if (msg.content.match(/\d+/) == null) {
+               msg.reply({embed: {
+                  author: {
+                     name: client.user.username,
+                     icon_url: client.user.avatarURL
+                  },
+                  color: 3447003,
+                  description: "You need to specify an amount to purge!"
+               }}).then(message => { message.delete(5000) });
+            } else {
+               let amount = parseInt(msg.content.match(/\d+/).shift());
                msg.channel.bulkDelete(amount + 1)
                   .then(msg => console.log(`Bulk deleted ${amount} messages`))
                   .catch(console.error)
+                  
+               msg.reply(embed.setDescription(`Purged **${amount}** messages!`))
+                  .then(message => { message.delete(5000) })
+                  .catch(console.error);
+               
             }
             break;
 
-         case "top" : // Falthrough
+         case "top" : // Fallthrough
          case "leaderboard" :
             let toppeople = ["", "", "", "", "", "", "", "", "", ""];
             let topvalues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -127,15 +159,49 @@ client.on('message', msg => {
             for (let i = 0; i < 10; i++) {
                description += `${i+1}. ${toppeople[i]} - ${topvalues[i]} points \n`;
             }
-            msg.reply({embed: {
-               author: {
-                  name: client.user.username,
-                  icon_url: client.user.avatarURL
-               },
-               color: 3447003,
-               title: "**Top 5 leaderboard**",
-               description: description
-             }});
+            msg.reply(embed.setDescription(description));
+            break;
+            
+         case "question" :
+            msg.reply(embed.setDescription(trivia.results[Math.floor(Math.random() * trivia.results.length)].question));
+            break;
+            
+         case "challenge" :
+            if (player1 == msg.author.id) msg.reply(embed.setDescription("You must wait before issuing a new challenge!"));
+            else if (player1 != null) msg.reply(embed.setDescription("You must wait for the current challenge to end!"));
+            else if (msg.mentions.members.size == 0) msg.reply(embed.setDescription("You need to challenge someone!"));
+            else if (msg.mentions.members.first().presence.status != "online") { 
+               msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
+            } else {
+               player1 = msg.member;
+               player2 = msg.mentions.members.first();
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == player2.id) {
+                     file.set(`user${i}.challenged`, true);
+                     break;
+                  }
+               }
+               msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}**! This challenge expires in 5 minutes - use !accept to accept.`));
+               setTimeout(challengereset, 10000);
+            }
+            break;
+            
+         case "accept" :
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               if (file.get(`user${i}.id`) == msg.author.id && file.get(`user${i}.challenged`) == true) {
+                  challengeAccepted = true;
+                  msg.reply(embed.setDescription(`${msg.author}**, you've accepted the challenge!**`));
+               }
+            }
+            if (!challengeAccepted) msg.reply(embed.setDescription(`${msg.author}, you haven't been challenged!`));
+            break;
+            
+         case "reset" :
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               file.set(`user${i}.challenged`, false);
+            }
+            challengeAccepted = false;
+            msg.reply(embed.setDescription("All challenges have been reset!"));
             break;
       }
    }
@@ -192,3 +258,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 
 // login to the bot (auth.json is in .gitignore as the token is sensitive data)
 client.login(auth.token);
+
+var embed = new Discord.RichEmbed()
+   .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/c3c574b654c949b0ab99d92ae4287381.png?size=2048")
+   .setColor(3447003);

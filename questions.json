@@ -1,0 +1,1168 @@
+{  
+   "response_code":0,
+   "results":[  
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In which series of games do you collect souls to empower you and buy weaponry and armor with?",
+         "correct_answer":"Souls ",
+         "incorrect_answers":[  
+            "Final Fantasy ",
+            "Monster Hunter",
+            "The Legend of Zelda"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which was the first of Alfred Hitchcock's movies to be filmed in colour?",
+         "correct_answer":"Rope",
+         "incorrect_answers":[  
+            "Psycho",
+            "Vertigo",
+            "Rebecca"
+         ]
+      },
+      {  
+         "category":"Sports",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the nickname of Northampton town's rugby union club?",
+         "correct_answer":"Saints",
+         "incorrect_answers":[  
+            "Harlequins",
+            "Saracens",
+            "Wasps"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"The Indie Game Development Studio Cing, developers of Hotel Dusk and Last Window, went bankrupt on March 1st, 2010.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"The idea of Socialism was articulated and advanced by whom?",
+         "correct_answer":"Karl Marx",
+         "incorrect_answers":[  
+            "Vladimir Lenin",
+            "Joseph Stalin",
+            "Vladimir Putin"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What was the capital of South Vietnam before the Vietnam War?",
+         "correct_answer":"Saigon",
+         "incorrect_answers":[  
+            "Ho Chi Minh City",
+            "Hanoi",
+            "Hue"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"What did Alfred Hitchcock use as blood in the film \"Psycho\"? ",
+         "correct_answer":"Chocolate syrup",
+         "incorrect_answers":[  
+            "Ketchup",
+            "Red food coloring",
+            "Maple syrup"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What does the Prt Sc button do?",
+         "correct_answer":"Captures what's on the screen and copies it to your clipboard",
+         "incorrect_answers":[  
+            "Nothing",
+            "Saves a .png file of what's on the screen in your screenshots folder in photos",
+            "Closes all windows"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which student in Yandere Simulator is known for asking irritating and stupid questions?",
+         "correct_answer":"Midori Gurin",
+         "incorrect_answers":[  
+            "Kokona Hruka",
+            "Oka Ruto",
+            "Pipi Osu"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"There are 86400 seconds in a day.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What Nationality is D.Va from Overwatch?",
+         "correct_answer":"Korean",
+         "incorrect_answers":[  
+            "Japanese",
+            "Chinese",
+            "Vietnamese "
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of the following chemicals are found in eggplant seeds?",
+         "correct_answer":"Nicotine",
+         "incorrect_answers":[  
+            "Mescaline",
+            "Cyanide",
+            "Psilocybin"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of these companies does NOT manufacture automobiles?",
+         "correct_answer":"Ducati",
+         "incorrect_answers":[  
+            "Nissan",
+            "GMC",
+            "Fiat"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which game was exclusive to Dreamcast?",
+         "correct_answer":"Pen Pen TriIcelon",
+         "incorrect_answers":[  
+            "Sylvester & Tweety in Cagey Capers",
+            "Perfect Dark",
+            "Tetrisphere"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which is not a type of neuron?",
+         "correct_answer":"Perceptual Neuron",
+         "incorrect_answers":[  
+            "Sensory Neuron",
+            "Motor Neuron",
+            "Interneuron"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Tetris is the #1 best-selling video game of all-time.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In what year did the North American Video Game Crash occur?",
+         "correct_answer":"1983",
+         "incorrect_answers":[  
+            "1982",
+            "1993",
+            "1970"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In what city in the dystopia alternate future of Half-Life 2 do you first start in?",
+         "correct_answer":"City 17",
+         "incorrect_answers":[  
+            "City 18",
+            "City 6",
+            "City 45"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"AMD created the first consumer 64-bit processor.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Vehicles",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which one is NOT the function of engine oil in car engines?",
+         "correct_answer":"Combustion",
+         "incorrect_answers":[  
+            "Lubrication",
+            "Cooling",
+            "Reduce corrosion"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In Touhou: Embodiment of Scarlet Devil, what song plays during Flandre Scarlet's boss fight?",
+         "correct_answer":"U.N. Owen Was Her",
+         "incorrect_answers":[  
+            "Septette for the Dead Princess",
+            "Flowering Night",
+            "Pierrot of the Star-Spangled Banner"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"The biggest distinction between a eukaryotic cell and a prokaryotic cell is:",
+         "correct_answer":"The presence or absence of a nucleus",
+         "incorrect_answers":[  
+            "The overall size",
+            "The presence or absence of certain organelles",
+            "The mode of reproduction"
+         ]
+      },
+      {  
+         "category":"Animals",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these animals is NOT a lizard?",
+         "correct_answer":"Tuatara",
+         "incorrect_answers":[  
+            "Komodo Dragon",
+            "Gila Monster",
+            "Green Iguana"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these weapon classes DO NOT appear in the first Monster Hunter game?",
+         "correct_answer":"Bow ",
+         "incorrect_answers":[  
+            "Hammer",
+            "Heavy Bowgun",
+            "Light Bowgun"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Who voices the main character Blu in the 2011 animated film \"Rio\"?",
+         "correct_answer":"Jesse Eisenberg",
+         "incorrect_answers":[  
+            "Michael Cera",
+            "Jonah Hill",
+            "Zach Galifianakis"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In \"The Big Bang Theory\", what is Howard Wolowitz's nickname in World of Warcraft?",
+         "correct_answer":"Wolowizard",
+         "incorrect_answers":[  
+            "Sheldor",
+            "Rajesh",
+            "Priya"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"In Pokémon Sun and Moon, a male Salandit can evolve to a Salazzle.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In the first Left 4 Dead, you can play as either of these four characters.",
+         "correct_answer":"Francis, Bill, Zoey, and Louis",
+         "incorrect_answers":[  
+            "Bender, Andrew, Allison, and Brian",
+            "Coach, Ellis, Nick, and Rochelle",
+            "Harry, Ron, Hermione and Dumbledore"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"boolean",
+         "difficulty":"hard",
+         "question":"The band STRFKR was also briefly known as Pyramiddd.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"71% of the Earth's surface is made up of",
+         "correct_answer":"Water",
+         "incorrect_answers":[  
+            "Deserts",
+            "Continents",
+            "Forests"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of the following carbonated soft drinks were introduced first?",
+         "correct_answer":"Dr. Pepper",
+         "incorrect_answers":[  
+            "Coca-Cola",
+            "Sprite",
+            "Mountain Dew"
+         ]
+      },
+      {  
+         "category":"Science: Mathematics",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"E = MC3",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the last song on the first Panic! At the Disco album?",
+         "correct_answer":"Build God, Then We'll Talk",
+         "incorrect_answers":[  
+            "Nails for Breakfast, Tacks for Snacks",
+            "I Write Sins Not Tragedies",
+            "Lying Is The Most Fun A Girl Can Have Without Taking Her Clothes Off"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Pistons were added to Minecraft in Beta 1.5.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"The song \"Caramelldansen\" is commonly mistaken as a Japanese song, what language is the song actually sung in?",
+         "correct_answer":"Swedish",
+         "incorrect_answers":[  
+            "Hungarian",
+            "Finnish",
+            "Chinese"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In the Lego Island trilogy, who taught Pepper Roni how to read?",
+         "correct_answer":"Officer Laura Brick",
+         "incorrect_answers":[  
+            "Papa Brickolini",
+            "Officer Nick Brick",
+            "Mama Brickolini"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these games was NOT developed by Markus Persson?",
+         "correct_answer":"Dwarf Fortress",
+         "incorrect_answers":[  
+            "Minecraft",
+            "Wurm Online",
+            "0x10c"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is the main protagonist in Danganronpa 2: Goodbye Despair?",
+         "correct_answer":"Hajime Hinata",
+         "incorrect_answers":[  
+            "Nagito Komaeda",
+            "Makoto Naegi",
+            "Junko Enoshima"
+         ]
+      },
+      {  
+         "category":"Entertainment: Japanese Anime & Manga",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In \"One Piece\", who confirms the existence of the legendary treasure, One Piece?",
+         "correct_answer":"Edward \"Whitebeard\" Newgate",
+         "incorrect_answers":[  
+            "Former Marine Fleet Admiral Sengoku",
+            "Pirate King Gol D Roger",
+            "Silvers Rayleigh"
+         ]
+      },
+      {  
+         "category":"Mythology",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of these mythological creatures is said to be half-man and half-horse?",
+         "correct_answer":"Centaur",
+         "incorrect_answers":[  
+            "Minotaur",
+            "Pegasus",
+            "Gorgon"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of these is the only fighter in the game \"Super Smash Bros. Melee\" capable of dealing damage with their taunt animation?",
+         "correct_answer":"Luigi",
+         "incorrect_answers":[  
+            "Mr. Game & Watch",
+            "Jigglypuff",
+            "Pichu"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of the following countries has a flag featuring a yellow lion wielding a sword on a dark red background?",
+         "correct_answer":"Sri Lanka",
+         "incorrect_answers":[  
+            "Kiribati",
+            "Scotland",
+            "Bhutan"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Activision created Battlefield 1.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What part of the brain takes its name from the Greek for seahorse?",
+         "correct_answer":"Hippocampus",
+         "incorrect_answers":[  
+            "Cerebellum",
+            "Thalamus",
+            "Amygdala"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"\"Exile\" and \"Revelations\" were the third and fourth installments of which PC game series?",
+         "correct_answer":"Myst",
+         "incorrect_answers":[  
+            "Shivers",
+            "Doom",
+            "Tropico"
+         ]
+      },
+      {  
+         "category":"Entertainment: Board Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"When Magic: The Gathering was first solicited, which of the following was it originally titled?",
+         "correct_answer":"Mana Clash",
+         "incorrect_answers":[  
+            "Magic",
+            "Magic Clash",
+            "Mana Duels"
+         ]
+      },
+      {  
+         "category":"Entertainment: Board Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Magic: The Gathering, what term for blocking was established in the Portal set?",
+         "correct_answer":"Intercepting",
+         "incorrect_answers":[  
+            "Blocking",
+            "Resisting",
+            "Shielding"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which candy is NOT made by Mars?",
+         "correct_answer":"Almond Joy",
+         "incorrect_answers":[  
+            "M&M's",
+            "Twix",
+            "Snickers"
+         ]
+      },
+      {  
+         "category":"Entertainment: Books",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What's the second book in George R. R. Martin's 'A Song of Ice and Fire' series?",
+         "correct_answer":"A Clash of Kings",
+         "incorrect_answers":[  
+            "A Dance with Dragons",
+            "A Storm of Swords",
+            "A Feast for Crows"
+         ]
+      },
+      {  
+         "category":"Entertainment: Books",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"\"Green Eggs and Ham\" consists of only 50 different words.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"The song 'Little April Shower' features in which Disney cartoon film?",
+         "correct_answer":"Bambi",
+         "incorrect_answers":[  
+            "Cinderella",
+            "Pinocchio",
+            "The Jungle Book"
+         ]
+      },
+      {  
+         "category":"Science: Mathematics",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"How many zeros are there in a googol?",
+         "correct_answer":"100",
+         "incorrect_answers":[  
+            "10",
+            "1,000",
+            "1,000,000"
+         ]
+      },
+      {  
+         "category":"Science: Mathematics",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the area of a circle with a diameter of 20 inches if π = 3.1415?",
+         "correct_answer":"314.15 Inches",
+         "incorrect_answers":[  
+            "380.1215 Inches",
+            "3141.5 Inches",
+            "1256.6 Inches"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Greenland is almost as big as Africa.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What is the first element on the periodic table?",
+         "correct_answer":"Hydrogen",
+         "incorrect_answers":[  
+            "Helium",
+            "Oxygen",
+            "Lithium"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The M41 Walker Bulldog remains in service in some countries to this day.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these characters in \"Undertale\" can the player NOT go on a date with?",
+         "correct_answer":"Toriel",
+         "incorrect_answers":[  
+            "Papyrus",
+            "Undyne",
+            "Alphys"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What snowy mob was added in Minecraft 1.10?",
+         "correct_answer":"Polar bears",
+         "incorrect_answers":[  
+            "Eskimos",
+            "Penguins",
+            "Walking TNT"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In what year was the first Transformers movie released?",
+         "correct_answer":"1986",
+         "incorrect_answers":[  
+            "2007",
+            "1984",
+            "2009"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which famous world leader is famed for the saying, \"Let them eat cake\", yet is rumored that he\/she never said it at all?",
+         "correct_answer":"Marie Antoinette",
+         "incorrect_answers":[  
+            "Czar Nicholas II",
+            "Elizabeth I",
+            "Henry VIII"
+         ]
+      },
+      {  
+         "category":"Entertainment: Japanese Anime & Manga",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The animated film \"Spirited Away\" won the Academy Award for Best Animated Feature at the 75th Academy Awards in 2003.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the name of the first \"Star Wars\" film by release order?",
+         "correct_answer":"A New Hope",
+         "incorrect_answers":[  
+            "The Phantom Menace",
+            "The Force Awakens",
+            "Revenge of the Sith"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of these companies does NOT manufacture automobiles?",
+         "correct_answer":"Ducati",
+         "incorrect_answers":[  
+            "Nissan",
+            "GMC",
+            "Fiat"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"When was \"Garry's Mod\" released?",
+         "correct_answer":"December 24, 2004",
+         "incorrect_answers":[  
+            "November 13, 2004",
+            "December 13, 2004",
+            "November 12, 2004"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of the following Arab countries does NOT have a flag containing only Pan-Arab colours?",
+         "correct_answer":"Qatar",
+         "incorrect_answers":[  
+            "Kuwait",
+            "United Arab Emirates",
+            "Jordan"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which brass instrument has the lowest pitch in an orchestra?",
+         "correct_answer":"Tuba",
+         "incorrect_answers":[  
+            "Trumpet",
+            "Saxophone",
+            "Trombone"
+         ]
+      },
+      {  
+         "category":"Sports",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which team was the 2014-2015 NBA Champions?",
+         "correct_answer":"Golden State Warriors",
+         "incorrect_answers":[  
+            "Cleveland Cavaliers",
+            "Houston Rockets",
+            "Atlanta Hawks"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of these is not a real character in the cartoon series My Little Pony: Friendship is Magic?",
+         "correct_answer":"Rose Marene",
+         "incorrect_answers":[  
+            "Pinkie Pie",
+            "Maud Pie",
+            "Rainbow Dash"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In Portal 2, how did CEO of Aperture Science, Cave Johnson, presumably die?",
+         "correct_answer":"Moon Rock Poisoning",
+         "incorrect_answers":[  
+            "Accidentally sending a portal to the Moon",
+            "Slipped in the shower",
+            "Asbestos Poisoning"
+         ]
+      },
+      {  
+         "category":"Entertainment: Comics",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Deadpool's identity is Slade Wilson.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which one of these actors is said to be cut from the film 'E.T. the Extra-Terrestrial'?",
+         "correct_answer":"Harrison Ford",
+         "incorrect_answers":[  
+            "Michael J. Fox",
+            "Andy Kaufman",
+            "Arnold Schwarzenegger"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The French word to travel is \"Travail\"",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"In Team Fortress 2, being disguised as a scout or medic results in a speed boost.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch is located on which Welsh island?",
+         "correct_answer":"Anglesey",
+         "incorrect_answers":[  
+            "Barry",
+            "Bardsey",
+            "Caldey"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"How long did it take the motorized window washers of the original World Trade Center to clean the entire exterior of the building?",
+         "correct_answer":"1 Month",
+         "incorrect_answers":[  
+            "3 Weeks",
+            "1 Week",
+            "2 Months"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What country is Cory in the House set in?",
+         "correct_answer":"The United States of America",
+         "incorrect_answers":[  
+            "Canada",
+            "Venezuala",
+            "England"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the correct term for the metal object in between the CPU and the CPU fan within a computer system?",
+         "correct_answer":"Heat Sink",
+         "incorrect_answers":[  
+            "CPU Vent",
+            "Temperature Decipator",
+            "Heat Vent"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these is a stop codon in DNA?",
+         "correct_answer":"TAA",
+         "incorrect_answers":[  
+            "ACT",
+            "ACA",
+            "GTA"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"When was Nintendo founded?",
+         "correct_answer":"September 23rd, 1889",
+         "incorrect_answers":[  
+            "October 19th, 1891",
+            "March 4th, 1887",
+            "December 27th, 1894"
+         ]
+      },
+      {  
+         "category":"Entertainment: Musicals & Theatres",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"How many plays is Shakespeare generally considered to have written?",
+         "correct_answer":"37",
+         "incorrect_answers":[  
+            "18",
+            "54",
+            "25"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Halo 2, how many rounds does the M6C hold in a single magazine?",
+         "correct_answer":"12",
+         "incorrect_answers":[  
+            "6",
+            "36",
+            "18"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which country has three capital cities?",
+         "correct_answer":"South Africa",
+         "incorrect_answers":[  
+            "Somalia",
+            "China",
+            "United Kingdom"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What is the capital of the US State of New York?",
+         "correct_answer":"Albany",
+         "incorrect_answers":[  
+            "Buffalo",
+            "New York",
+            "Rochester"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of the following is a personal computer made by the Japanese company Fujitsu?",
+         "correct_answer":"FM-7",
+         "incorrect_answers":[  
+            "PC-9801",
+            "Xmillennium ",
+            "MSX"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In what dialogue did Socrates defend himself to the court of Athens? ",
+         "correct_answer":"The Apology",
+         "incorrect_answers":[  
+            "The Euthyphro",
+            "The Laws",
+            "The Republic"
+         ]
+      },
+      {  
+         "category":"Entertainment: Comics",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In what year did the first \"The Walking Dead\" comic come out?",
+         "correct_answer":"2003",
+         "incorrect_answers":[  
+            "2001",
+            "2006",
+            "1999"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who created the Cartoon Network series \"Regular Show\"?",
+         "correct_answer":"J. G. Quintel",
+         "incorrect_answers":[  
+            "Ben Bocquelet",
+            "Pendleton Ward",
+            "Rebecca Sugar"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which iconic Disneyland attraction was closed in 2017 to be remodeled as a \"Guardians of the Galaxy\" themed ride?",
+         "correct_answer":"Twilight Zone Tower of Terror",
+         "incorrect_answers":[  
+            "The Haunted Mansion",
+            "Pirates of the Caribbean",
+            "Peter Pan's Flight"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Linux was first created as an alternative to Windows XP.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Books",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"The book \"Fahrenheit 451\" was written by whom?",
+         "correct_answer":"Ray Bradbury",
+         "incorrect_answers":[  
+            "R. L. Stine",
+            "Wolfgang Amadeus Mozart",
+            "Stephen King"
+         ]
+      },
+      {  
+         "category":"Entertainment: Japanese Anime & Manga",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What was studio Trigger's first original long-form animated series for television?",
+         "correct_answer":"Kill la Kill",
+         "incorrect_answers":[  
+            "Kiznaiver",
+            "Inferno Cop",
+            "Gurren Lagann"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Kublai Khan is the grandchild of Genghis Khan?",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Toby Fox's \"Megalovania\" was first used where?",
+         "correct_answer":"Radiation's Earthbound Halloween Hack",
+         "incorrect_answers":[  
+            "Homestuck: [S] Wake",
+            "Undertale",
+            "Mother: Cognitive Dissonance"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In what year did Clint Eastwood star as Inspector Harry Callahan in the film \"Dirty Harry\"?",
+         "correct_answer":"1971",
+         "incorrect_answers":[  
+            "1975",
+            "1983",
+            "1969"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which former boy-band star released hit solo single \"Angels\" in 1997?",
+         "correct_answer":"Robbie Williams",
+         "incorrect_answers":[  
+            "Justin Timberlake",
+            "Harry Styles",
+            "Gary Barlow"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"\"Santa Claus\" is a variety of melon.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In \"Call Of Duty: Zombies\", which map's opening cutscene shows \"Richtofen\" killing another version of himself?",
+         "correct_answer":"The Giant",
+         "incorrect_answers":[  
+            "Shadows Of Evil",
+            "Der Eisendrache",
+            "Moon"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In \"Call Of Duty: Zombies\", which map introduced the perk \"PhD Flopper\"?",
+         "correct_answer":"Ascension",
+         "incorrect_answers":[  
+            "Moon",
+            "Call Of The Dead",
+            "Die Rise"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Guild Wars 2, Marjory Delaqua is a human detective of which descent?",
+         "correct_answer":"Canthan",
+         "incorrect_answers":[  
+            "Elonian",
+            "Krytan",
+            "Ascalonian"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is Lilo's last name from Lilo and Stitch?",
+         "correct_answer":"Pelekai",
+         "incorrect_answers":[  
+            "Anoa\u02bbi",
+            "Kealoha",
+            "Ku\u02bbulei"
+         ]
+      }
+   ]
+}
+
