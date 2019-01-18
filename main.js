@@ -3,8 +3,9 @@ const auth = require("./auth.json");
 const trivia = require("./questions.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var player1 = null; var player2 = null;
-var challengeAccepted = false;
+var player1 = null; var player2 = null; var currentPlayer = null; var bet = 0;
+var challengeAccepted = false; var declined = false; var gameStarted = false;
+var question = null; var answers = [];
 
 // open JSON file for member properties
 let file = editJsonFile(`${__dirname}/info.json`, {
@@ -27,15 +28,42 @@ function sleep (time) {
    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+// Shuffle the answer choices in a challenge
+function shuffle (array) {
+
+  let j = 0
+  let temp = null;
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    j = Math.floor(Math.random() * (i + 1))
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  
+  return array;
+}
+
 function challengereset () {
-   if (!challengeAccepted) {
+   if (!challengeAccepted && !declined) {
       for (let i = 1; i <= file.get("usercount"); i++) {
          file.set(`user${i}.challenged`, false);
       }
+      
       client.channels.get('504057505266270210').send(embed.setDescription(`${player1.user}, your challenge to ${player2.user} has expired. You may now re-challenge them or challenge someone else.`));
       player1 = null;
       player2 = null;
+      currentPlayer = null;
+      gameStarted = false;
+      question = null; answers = null;
    }
+   declined = false;
+}
+
+// Reset embed fields
+function embedReset () {
+   embed = new Discord.RichEmbed()
+      .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/c3c574b654c949b0ab99d92ae4287381.png?size=2048")
+      .setColor(3447003);
 }
 
 // Let console know the bot's started
@@ -57,6 +85,7 @@ client.on('guildMemberAdd', gm => {
 
 // When someone sends a message
 client.on('message', msg => {
+   embedReset();
    console.log(`Message sent by ${msg.author.username} in ${msg.channel.name} which has id ${msg.id} and content ${msg.content}.`); // Let console know someone's sent a message
    // Give them a point for chatting
    if (msg.author.id != client.user.id) {
@@ -102,6 +131,7 @@ client.on('message', msg => {
          
          // Changing the prefix
          case "prefix" :
+            
             if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) {
                msg.reply(embed.setDescription("You are not an admin!"))
                   .catch(console.error);
@@ -120,16 +150,10 @@ client.on('message', msg => {
            
          // Deleting multiple messages in a channel
          case "purge" :
+            
             if ( !msg.member.highestRole.name.toLowerCase().includes("memer") ) msg.reply("You are not an admin!");
             else if (msg.content.match(/\d+/) == null) {
-               msg.reply({embed: {
-                  author: {
-                     name: client.user.username,
-                     icon_url: client.user.avatarURL
-                  },
-                  color: 3447003,
-                  description: "You need to specify an amount to purge!"
-               }}).then(message => { message.delete(5000) });
+               msg.reply(embed.setDescription("You need to specify an amount to purge!"));
             } else {
                let amount = parseInt(msg.content.match(/\d+/).shift());
                msg.channel.bulkDelete(amount + 1)
@@ -145,6 +169,7 @@ client.on('message', msg => {
 
          case "top" : // Fallthrough
          case "leaderboard" :
+            embedReset
             let toppeople = ["", "", "", "", "", "", "", "", "", ""];
             let topvalues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             for (let current = 0; current < 10; current ++) {
@@ -161,47 +186,142 @@ client.on('message', msg => {
             }
             msg.reply(embed.setDescription(description));
             break;
-            
+         
+         // Send a random question   
          case "question" :
-            msg.reply(embed.setDescription(trivia.results[Math.floor(Math.random() * trivia.results.length)].question));
+            let testQuestion = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+            if (testQuestion.type == "boolean") {
+               let qType = "True/False";
+               msg.reply(embed.setTitle(`**${qType}: **`).setDescription(testQuestion.question).addField("A", "True", true).addField("B", "False", true));
+            } else if (testQuestion.type == "multiple") {
+               let qType = "Multiple Choice";
+               answers = [testQuestion.correct_answer];
+               for (let wrong of testQuestion.incorrect_answers) {
+                  answers.push(wrong);
+               }
+               msg.reply(embed.setTitle(`**${qType}: **`).setDescription(testQuestion.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+            }
             break;
             
+         // Duel a player!
          case "challenge" :
             if (player1 == msg.author.id) msg.reply(embed.setDescription("You must wait before issuing a new challenge!"));
             else if (player1 != null) msg.reply(embed.setDescription("You must wait for the current challenge to end!"));
-            else if (msg.mentions.members.size == 0) msg.reply(embed.setDescription("You need to challenge someone!"));
+            else if (msg.mentions.members.size == 0) msg.reply(embed.setDescription("You need to challenge someone! \n*Syntax: !challenge <user> <bet>*"));
+            else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify a bet for the challenge! \n*Syntax: !challenge <user> <bet>*"));
             else if (msg.mentions.members.first().presence.status != "online") { 
                msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
             } else {
+               // The challenge is valid, send the invitation and set up variables
                player1 = msg.member;
                player2 = msg.mentions.members.first();
+               bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                for (let i = 1; i <= file.get("usercount"); i++) {
                   if (file.get(`user${i}.id`) == player2.id) {
                      file.set(`user${i}.challenged`, true);
                      break;
                   }
                }
-               msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}**! This challenge expires in 5 minutes - use !accept to accept.`));
-               setTimeout(challengereset, 10000);
+               msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}** for **${bet} points**! This challenge expires in 5 minutes - use !accept to accept.`));
+               setTimeout(challengereset, 10000); // Expire after 5 minutes
             }
             break;
             
+         // Accepting a challenge
          case "accept" :
             for (let i = 1; i <= file.get("usercount"); i++) {
                if (file.get(`user${i}.id`) == msg.author.id && file.get(`user${i}.challenged`) == true) {
                   challengeAccepted = true;
+                  gameStarted = true;
                   msg.reply(embed.setDescription(`${msg.author}**, you've accepted the challenge!**`));
+                  currentPlayer = player1;
+                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                  if (question.type == "multiple") {
+                     let qType = "Multiple Choice";
+                     answers = [question.correct_answer];
+                     for (let wrong of question.incorrect_answers) {
+                        answers.push(wrong);
+                     }
+                     answers = shuffle(answers);
+                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                  } else if (question.type == "boolean") {
+                     let qType = "True/False";
+                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", "True", true).addField("B", "False", true));
+                  }
+                  
                }
             }
             if (!challengeAccepted) msg.reply(embed.setDescription(`${msg.author}, you haven't been challenged!`));
             break;
+         
+         // Declining a challenge (reset variables)
+         case "decline" :
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               if (file.get(`user${i}.id`) == msg.author.id) {
+                  if (challengeAccepted == true) {
+                     msg.reply(embed.setDescription("You can't decline the challenge once it's started!"));
+                  } else if (file.get(`user${i}.challenged`) == true) {
+                     challengeAccepted = false;
+                     file.set(`user${i}.challenged`, false);
+                     player1 = null;
+                     player2 = null;
+                     currentPlayer = null;
+                     declined = true;
+                     gameStarted = false;
+                     question = null; answers = null;
+                     msg.reply(embed.setDescription(`${msg.author}**, you've declined the challenge!**`));
+                  } else {
+                     msg.reply(embed.setDescription(`${msg.author}**, you haven't been challenged!**`));
+                  }
+               }
+            }
+            break;
             
+         // Reset all challenges if something bugs out
          case "reset" :
             for (let i = 1; i <= file.get("usercount"); i++) {
                file.set(`user${i}.challenged`, false);
             }
             challengeAccepted = false;
+            gameStarted = false;
+            player1 = null; player2 = null; currentPlayer = null;
+            question = null; answers = null;
             msg.reply(embed.setDescription("All challenges have been reset!"));
+            break;
+         
+         case "answer" :
+            if (!gameStarted) msg.reply(embed.setDescription("A game has not yet been started."));
+            else if (msg.author.id != player1.id && msg.author.id != player2.id) msg.reply(embed.setDescription("You are not in this challenge!"));
+            else if (msg.author.id != currentPlayer.id) msg.reply(embed.setDescription("This is not your turn."));
+            else if (truefirstspace == -1) {
+               msg.reply(embed.setDescription("You need to pick an answer!"))
+                  .catch(console.error);
+            } else {
+               switch (msg.content.substring(firstspace).trim()) {
+                  case "a" : // Fallthrough
+                  case "A" :
+                     if (question.correct_answer == answers[0]) msg.reply(embed.setDescription("**Correct!**"));
+                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     break;
+                  case "b" : // Fallthrough
+                  case "B" :
+                     if (question.correct_answer == answers[1]) msg.reply(embed.setDescription("**Correct!**"));
+                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     break;
+                  case "c" : // Fallthrough
+                  case "C" :
+                     if (question.type == "boolean") msg.reply(embed.setDescription("There is no answer C!"));
+                     else if (question.correct_answer == answers[2]) msg.reply(embed.setDescription("**Correct!**"));
+                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     break;
+                  case "d" : // Falthrough
+                  case "D" :
+                     if (question.type == "boolean") msg.reply(embed.setDescription("There is no answer D!"));
+                     else if (question.correct_answer == answers[3]) msg.reply(embed.setDescription("**Correct!**"));
+                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     break;
+               }
+            }
             break;
       }
    }
@@ -215,7 +335,7 @@ client.on('message', msg => {
          client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
       } else {
          msg.react('⬆')
-            .then(sleep(1500))
+            .then(sleep(2500))
             .then(msg.react('⬇'))
             .then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
             .catch(console.error);
