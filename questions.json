@@ -1162,6 +1162,1182 @@
             "Kealoha",
             "Ku\u02bbulei"
          ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What is the name of &quot;Team Fortress 2&quot; update, in which it became Free-to-play?",
+         "correct_answer":"&Uuml;ber Update",
+         "incorrect_answers":[  
+            "Pyromania Update",
+            "Mann-Conomy Update",
+            "Engineer Update"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Who is the artist of the recent new album the Uncanny Valley?",
+         "correct_answer":"Perturbator",
+         "incorrect_answers":[  
+            "Carpenter Brut",
+            "GOST",
+            "Dan Terminus "
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Who is the best selling artist of all time?",
+         "correct_answer":"The Beatles",
+         "incorrect_answers":[  
+            "Michael Jackson",
+            "Elton John",
+            "Elvis Presley"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"&quot;Some people call me the space cowboy&quot; is the first line from what song?",
+         "correct_answer":"The Joker",
+         "incorrect_answers":[  
+            "Fandango",
+            "Take The Money and Run",
+            "Fly Like an Eagle"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which &quot;Toy Story&quot; character was voiced by Don Rickles?",
+         "correct_answer":"Mr. Potato Head",
+         "incorrect_answers":[  
+            "Slinky Dog",
+            "Hamm",
+            "Rex"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which king was killed at the Battle of Bosworth Field in 1485? ",
+         "correct_answer":"Richard III",
+         "incorrect_answers":[  
+            "Edward V",
+            "Henry VII",
+            "James I"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"How many legs is it biologically impossible for a centipede to have?",
+         "correct_answer":"100",
+         "incorrect_answers":[  
+            "26",
+            "50",
+            "74"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In which 1955 film does Frank Sinatra play Nathan Detroit?",
+         "correct_answer":"Guys and Dolls",
+         "incorrect_answers":[  
+            "Anchors Aweigh",
+            "From Here to Eternity",
+            "High Society"
+         ]
+      },
+      {  
+         "category":"Entertainment: Books",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Abel Magwitch is a character from which Charles Dickens novel?",
+         "correct_answer":"Great Expectations",
+         "incorrect_answers":[  
+            "The Pickwick Papers",
+            "Nicholas Nickleby",
+            "Oliver Twist"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Like with the Neanderthals, Homo sapiens sapiens also interbred with the Denisovans.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In &quot;Clash Royale&quot; what is Arena 4 called?",
+         "correct_answer":"P.E.K.K.A&#039;s Playhouse",
+         "incorrect_answers":[  
+            "Barbarian Bowl",
+            "Spell Valley",
+            "Royal Arena"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"When did the last episode of &quot;Futurama&quot; air?",
+         "correct_answer":"September 4, 2013",
+         "incorrect_answers":[  
+            "December 25, 2010",
+            "March 28, 1999",
+            "On Going"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which nation claims ownership of Antarctica?",
+         "correct_answer":"No one, but there are claims.",
+         "incorrect_answers":[  
+            "United States of America",
+            "United Nations",
+            "Australia"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of these is NOT a team available in the game Pok&eacute;mon Go?",
+         "correct_answer":"Team Rocket",
+         "incorrect_answers":[  
+            "Team Instinct",
+            "Team Valor",
+            "Team Mystic"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In the fighting game &quot;Skullgirls,&quot; which character utilizes a folding chair called the &quot;Hurting&quot; as a weapon?",
+         "correct_answer":"Beowulf",
+         "incorrect_answers":[  
+            "Big Band",
+            "Squigly",
+            "Cerebella"
+         ]
+      },
+      {  
+         "category":"Sports",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"The F1 season of 1994 is remembered for what tragic event?",
+         "correct_answer":"Death of Ayrton Senna (San Marino)",
+         "incorrect_answers":[  
+            "The Showdown (Australia)",
+            "Verstappen on Fire (Germany)",
+            "Schumacher&#039;s Ban (Britain)"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In &quot;Sonic the Hedgehog 3&quot; for the Sega Genesis, what is the color of the second Chaos Emerald you can get from Special Stages?",
+         "correct_answer":"Orange",
+         "incorrect_answers":[  
+            "Blue",
+            "Green",
+            "Magenta"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"A factiod is what?",
+         "correct_answer":"A falsehood",
+         "incorrect_answers":[  
+            "Useless trivia",
+            "A tiny fact",
+            "A scientific figure"
+         ]
+      },
+      {  
+         "category":"Animals",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What are rhino&#039;s horn made of?",
+         "correct_answer":"Keratin",
+         "incorrect_answers":[  
+            "Bone",
+            "Ivory",
+            "Skin"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of the following Pok&eacute;mon games released first?",
+         "correct_answer":"Pok&eacute;mon Crystal",
+         "incorrect_answers":[  
+            "Pok&eacute;mon Platinum",
+            "Pok&eacute;mon FireRed",
+            "Pok&eacute;mon Black"
+         ]
+      },
+      {  
+         "category":"Politics",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Russia passed a law in 2013 which outlaws telling children that homosexuals exist.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Japanese Anime & Manga",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is the main character with yellow hair in the anime Naruto?",
+         "correct_answer":"Naruto",
+         "incorrect_answers":[  
+            "Ten Ten",
+            "Sasuke",
+            "Kakashi"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In Need For Speed Most Wanted (2005), what do you drive at the beginning of the career mode?",
+         "correct_answer":"BMW M3 GTR",
+         "incorrect_answers":[  
+            "Porsche 911 Turbo",
+            "Nissan 240SX",
+            "Ford Mustang"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What ingredients are required to make a cake in Minecraft?",
+         "correct_answer":"Milk, Sugar, Egg, and Wheat",
+         "incorrect_answers":[  
+            "Milk, Bread, Egg, and Wheat",
+            "Milk, Sugar Cane, Egg, and Wheat",
+            "Milk, Sugar, and Wheat"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is depicted on the US hundred dollar bill?",
+         "correct_answer":"Benjamin Franklin",
+         "incorrect_answers":[  
+            "George Washington",
+            "Abraham Lincoln",
+            "Thomas Jefferson"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the correct phrase for the Latin saying &quot;Romanes Eunt Domus&quot; in Monty Python&#039;s Life of Brian?",
+         "correct_answer":"Romani Ite Domum",
+         "incorrect_answers":[  
+            "Romans Go Home",
+            "Roxani Ite Domum",
+            "Tomate Ite Domum"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Antarctica is the largest desert in the world.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"boolean",
+         "difficulty":"hard",
+         "question":"&quot;Cube&quot;, &quot;Cube 2: Hypercube&quot; and &quot;Cube Zero&quot; were directed by the same person.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In Back to the Future Part II, Marty and Dr. Emmett Brown go to which future date?",
+         "correct_answer":"October 21, 2015",
+         "incorrect_answers":[  
+            "August 28, 2015",
+            "July 20, 2015",
+            "January 25, 2015"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"In Riot Games &quot;League of Legends&quot; the name of Halloween event is called &quot;The Reckoning&quot;.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"&quot;Gimmick!&quot; is a Japanese Famicom game that uses a sound chip expansion in the cartridge. What is it called?",
+         "correct_answer":"FME-7",
+         "incorrect_answers":[  
+            "VRC7",
+            "VRC6",
+            "MMC5"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"The Fallingwater House, located in Pennsylvania, was designed by which architect?",
+         "correct_answer":"Frank Lloyd Wright",
+         "incorrect_answers":[  
+            "Antoni Gaudi",
+            "Frank Gehry",
+            "Le Corbusier"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In season one of the Netflix political drama &quot;House of Cards&quot;, what government position does Frank Underwood hold?",
+         "correct_answer":"House Majority Whip",
+         "incorrect_answers":[  
+            "Attorney General",
+            "President",
+            "Chief of Staff"
+         ]
+      },
+      {  
+         "category":"Celebrities",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"How much weight did Chris Pratt lose for his role as Star-Lord in &quot;Guardians of the Galaxy&quot;?",
+         "correct_answer":"60 lbs",
+         "incorrect_answers":[  
+            "30 lbs",
+            "50 lbs",
+            "70 lbs"
+         ]
+      },
+      {  
+         "category":"Vehicles",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What nickname was given to Air Canada Flight 143 after it ran out of fuel and glided to safety in 1983?",
+         "correct_answer":"Gimli Glider",
+         "incorrect_answers":[  
+            "Gimli Microlight",
+            "Gimli Chaser",
+            "Gimli Superb"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"When Donkey Kong died in the &quot;Donkey Kong Country&quot; episode &quot;It&#039;s a Wonderful Life&quot;, who was his guardian angel?",
+         "correct_answer":"Eddie the Mean Old Yeti",
+         "incorrect_answers":[  
+            "Kiddy Kong",
+            "Diddy Kong",
+            "King K. Rool"
+         ]
+      },
+      {  
+         "category":"Entertainment: Japanese Anime & Manga",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Ikki Kurogane is known by what nickname at the beginning of &quot;Chivalry of a Failed Knight&quot;?",
+         "correct_answer":"Worst One",
+         "incorrect_answers":[  
+            "Another One",
+            "Blazer",
+            "Princess"
+         ]
+      },
+      {  
+         "category":"Vehicles",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What is the name of Nissan&#039;s most popular electric car?",
+         "correct_answer":"Leaf",
+         "incorrect_answers":[  
+            "Tree",
+            "Deer",
+            "Roots"
+         ]
+      },
+      {  
+         "category":"Science: Gadgets",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of the following cellular device companies is NOT headquartered in Asia?",
+         "correct_answer":"Nokia",
+         "incorrect_answers":[  
+            "LG Electronics",
+            "Samsung",
+            "HTC"
+         ]
+      },
+      {  
+         "category":"Science: Mathematics",
+         "type":"boolean",
+         "difficulty":"hard",
+         "question":"In Topology, the complement of an open set is a closed set.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Art",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of these is not an additional variation of the color purple?",
+         "correct_answer":"Kobicha",
+         "incorrect_answers":[  
+            "Byzantium",
+            "Pomp and Power",
+            "Palatinate"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Before &quot;Jurassic Park III&quot; was finalized and the Spinosaurus was chosen, which dinosaur was going to be the star?",
+         "correct_answer":"Baryonyx",
+         "incorrect_answers":[  
+            "Tyrannosaurus Rex",
+            "Velociraptor",
+            "Suchomimus"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In which country is Tallinn located?",
+         "correct_answer":"Estonia",
+         "incorrect_answers":[  
+            "Finland",
+            "Sweden",
+            "Poland"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What continent is the country Lesotho in?",
+         "correct_answer":"Africa",
+         "incorrect_answers":[  
+            "Asia",
+            "South America",
+            "Europe"
+         ]
+      },
+      {  
+         "category":"Entertainment: Board Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In &quot;Magic: The Gathering&quot;, what instant card has the highest converted mana cost?",
+         "correct_answer":"Blinkmoth Infusion",
+         "incorrect_answers":[  
+            "Vitalizing Wind",
+            " Chant of Vitu-Ghazi",
+            "Assert Authority"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In which game did the Konami Code make its first appearance?",
+         "correct_answer":"Gradius",
+         "incorrect_answers":[  
+            "Contra",
+            "Castlevania",
+            "Dance Dance Revolution"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which of these games takes place in the Irish town of Doolin, with the option to play as one of the characters, Ellen and Keats?",
+         "correct_answer":"Folklore",
+         "incorrect_answers":[  
+            "Shadow of the Colossus",
+            "ICO",
+            "Beyond Good &amp; Evil"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Coulrophobia is the irrational fear of what?",
+         "correct_answer":"Clowns",
+         "incorrect_answers":[  
+            "Cemeteries",
+            "Needles",
+            "Tunnels"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which pop singer was brought in by SEGA to produce the music for &quot;Sonic the Hedgehog 3&quot;?",
+         "correct_answer":"Michael Jackson ",
+         "incorrect_answers":[  
+            "Prince",
+            "George Michael",
+            "Vanilla Ice "
+         ]
+      },
+      {  
+         "category":"Entertainment: Books",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What was the first ever entry written for the SCP Foundation collaborative writing project?",
+         "correct_answer":"SCP-173",
+         "incorrect_answers":[  
+            "SCP-001",
+            "SCP-999",
+            "SCP-1459"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the punishment for playing Postal 2 in New Zealand?",
+         "correct_answer":"10 years in prison and a fine of $50,000",
+         "incorrect_answers":[  
+            "Fine of $5,000",
+            "Nothing",
+            "15 years in prison and a fine of $10,000"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"When did the French Revolution begin?",
+         "correct_answer":"1789",
+         "incorrect_answers":[  
+            "1823",
+            "1756",
+            "1799"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which naval battle was considered the turning point of the Pacific Ocean Theater during World War 2?",
+         "correct_answer":"Battle of Midway",
+         "incorrect_answers":[  
+            "Attack on Truk Island",
+            "Attack on Pearl Harbor",
+            "Battle of the Coral Sea"
+         ]
+      },
+      {  
+         "category":"Science & Nature",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"How many objects are equivalent to one mole?",
+         "correct_answer":"6.022 x 10^23",
+         "incorrect_answers":[  
+            "6.002 x 10^22",
+            "6.022 x 10^22",
+            "6.002 x 10^23"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What is the most common surname Wales?",
+         "correct_answer":"Jones",
+         "incorrect_answers":[  
+            "Williams",
+            "Davies",
+            "Evans"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"In the game Half-Life, which enemy is showcased as the final boss?",
+         "correct_answer":"The Nihilanth",
+         "incorrect_answers":[  
+            "Dr. Wallace Breen",
+            "G-Man",
+            "The Gonarch"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is the protagonist in the game &quot;The Walking Dead: Season One&quot;?",
+         "correct_answer":"Lee Everett",
+         "incorrect_answers":[  
+            "Clementine",
+            "Kenny",
+            "Rick Grimes"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is the writer of the game &quot;Half-Life&quot;?",
+         "correct_answer":"Marc Laidlaw",
+         "incorrect_answers":[  
+            "Gabe Newell",
+            "Robin Walker",
+            "Chet Faliszek"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Butters Stotch, Pip Pirrup, and Wendy Testaburger are all characters in which long running animated TV series?",
+         "correct_answer":"South Park",
+         "incorrect_answers":[  
+            "The Simpsons",
+            "Family Guy",
+            "Bob&#039;s Burgers"
+         ]
+      },
+      {  
+         "category":"Art",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which artist&rsquo;s studio was known as &#039;The Factory&#039;?",
+         "correct_answer":"Andy Warhol",
+         "incorrect_answers":[  
+            "Roy Lichtenstein",
+            "David Hockney",
+            "Peter Blake"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"The map featured in Arma 3 named &quot;Altis&quot; is based off of what Greek island?",
+         "correct_answer":"Lemnos",
+         "incorrect_answers":[  
+            "Ithaca",
+            "Naxos",
+            "Anafi"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which language is NOT Indo-European?",
+         "correct_answer":"Hungarian",
+         "incorrect_answers":[  
+            "Russian",
+            "Greek",
+            "Latvian"
+         ]
+      },
+      {  
+         "category":"Science: Mathematics",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"What&#039;s the square root of 49?",
+         "correct_answer":"7",
+         "incorrect_answers":[  
+            "4",
+            "12",
+            "9"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of the following former Yugoslavian states is landlocked?",
+         "correct_answer":"Serbia",
+         "incorrect_answers":[  
+            "Bosnia and Herzegovina",
+            "Montenegro",
+            "Croatia"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which one of these artists appears in the album Deltron 3030?",
+         "correct_answer":"Dan the Automater",
+         "incorrect_answers":[  
+            "Lamarr Kendrick",
+            "Danger Mouse",
+            "CeeLo Green"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"When was the United States National Security Agency established?",
+         "correct_answer":"November 4, 1952",
+         "incorrect_answers":[  
+            "July 26, 1908",
+            " July 1, 1973",
+            " November 25, 2002"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Brian May was the guitarist for which band?",
+         "correct_answer":"Queen",
+         "incorrect_answers":[  
+            "Pink Floyd",
+            "Rolling Stones",
+            "The Doors"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the name of the popular animatronic singing fish prop, singing such hits such as &quot;Don&#039;t Worry, Be Happy&quot;?",
+         "correct_answer":"Big Mouth Billy Bass",
+         "incorrect_answers":[  
+            "Big Billy Bass",
+            "Singing Fish",
+            "Sardeen"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"How many countries does Spain have a land border with?",
+         "correct_answer":"5",
+         "incorrect_answers":[  
+            "2",
+            "3",
+            "4"
+         ]
+      },
+      {  
+         "category":"Animals",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"What is the scientific name of the Budgerigar?",
+         "correct_answer":"Melopsittacus undulatus",
+         "incorrect_answers":[  
+            "Nymphicus hollandicus",
+            "Pyrrhura molinae",
+            "Ara macao"
+         ]
+      },
+      {  
+         "category":"Mythology",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Norse mythology, what is the name of the serpent which eats the roots of the ash tree Yggdrasil?",
+         "correct_answer":"Nidhogg",
+         "incorrect_answers":[  
+            "Bragi",
+            "Odin",
+            "Ymir"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who is the main protagonist of Dead Space?",
+         "correct_answer":"Isaac Clarke",
+         "incorrect_answers":[  
+            "Commander Shepard",
+            "Gordon Freeman",
+            "Master Chief"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Dee from &quot;It&#039;s Always Sunny in Philadelphia&quot; has dated all of the following guys EXCEPT",
+         "correct_answer":"Matthew &quot;Rickety Cricket&quot; Mara",
+         "incorrect_answers":[  
+            "Colin the Thief",
+            "Ben the Soldier",
+            "Kevin Gallagher aka Lil&#039; Kevin"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What is the official language of Bhutan?",
+         "correct_answer":"Dzongkha",
+         "incorrect_answers":[  
+            "Ladakhi",
+            "Karen",
+            "Groma"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"In most programming languages, the operator ++ is equivalent to the statement &quot;+= 1&quot;.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In the original DOOM games, which of the following demons is a recolor of the Baron of Hell, but is weaker than the Baron?",
+         "correct_answer":"Hell Knight",
+         "incorrect_answers":[  
+            "Mancubus",
+            "Pinky",
+            "Arch-Vile"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"One of Donald Trump&#039;s 2016 Presidential Campaign promises was to build a border wall between the United States and Mexico.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"The end credits sequence in Grand Theft Auto 5 is over half an hour long.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which Kingdom Hearts game featured the cast of &quot;The World Ends With You&quot;?",
+         "correct_answer":"Dream Drop Distance",
+         "incorrect_answers":[  
+            "Birth By Sleep",
+            "365\/2 Days",
+            "Re:Chain of Memories"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of the following is not a faction in Tom Clancy&#039;s The Division?",
+         "correct_answer":"CDC",
+         "incorrect_answers":[  
+            "Cleaners",
+            "Last Man Batallion",
+            "Rikers"
+         ]
+      },
+      {  
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Albert Einstein had trouble with mathematics when he was in school.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"Geography",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"What is the name of the formerly rich fishing grounds off the island of Newfoundland, Canada?",
+         "correct_answer":"Grand Banks",
+         "incorrect_answers":[  
+            "Great Barrier Reef",
+            "Mariana Trench",
+            "Hudson Bay"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In the title of the game &quot;Luigi&#039;s Mansion&quot;, what is the only letter to not appear with a pair of eyes in it?",
+         "correct_answer":"s",
+         "incorrect_answers":[  
+            "n",
+            "i",
+            "m"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"Which of the following is the oldest of these computers by release date?",
+         "correct_answer":"TRS-80",
+         "incorrect_answers":[  
+            "Commodore 64",
+            "ZX Spectrum",
+            "Apple 3"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Super Smash Bros. for Nintendo 3DS and Nintendo Wii U, who was the sixth fighter to be added to the game post-launch?",
+         "correct_answer":"Corrin",
+         "incorrect_answers":[  
+            "Cloud",
+            "Bayonnetta",
+            "Ryu"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Stevie Wonder&#039;s real name is Stevland Hardaway Morris.",
+         "correct_answer":"True",
+         "incorrect_answers":[  
+            "False"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"How many trophies are there in &quot;Super Smash Bros. for Nintendo 3DS&quot;?",
+         "correct_answer":"685",
+         "incorrect_answers":[  
+            "1360",
+            "716",
+            "1155"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What element does the Zinogre use in Monster Hunter?",
+         "correct_answer":"Thunder",
+         "incorrect_answers":[  
+            "Ice",
+            "Fire",
+            "Water"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Who played the Cenobite called &quot;Pinhead&quot; in the original Hellraiser films?",
+         "correct_answer":"Doug Bradley",
+         "incorrect_answers":[  
+            "Doug Jones",
+            "Doug Savant",
+            "Doug Benson"
+         ]
+      },
+      {  
+         "category":"Entertainment: Film",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Who plays the character of Po in the Kung Fu Panda movies?",
+         "correct_answer":"Jack Black",
+         "incorrect_answers":[  
+            "Mirana Jonnes",
+            "McConahey Ramses",
+            "Jim Petersson"
+         ]
+      },
+      {  
+         "category":"Science: Computers",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"America Online (AOL) started out as which of these online service providers?",
+         "correct_answer":"Quantum Link",
+         "incorrect_answers":[  
+            "CompuServe",
+            "Prodigy",
+            "GEnie"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Watch_Dogs 2 is a prequel.",
+         "correct_answer":"False",
+         "incorrect_answers":[  
+            "True"
+         ]
+      },
+      {  
+         "category":"History",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In World War I, what was the name of the alliance of Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria?",
+         "correct_answer":"The Central Powers",
+         "incorrect_answers":[  
+            "The Axis Powers",
+            "The Federation of Empires",
+            "Authoritarian Alliance"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"When was Club Penguin launched?",
+         "correct_answer":"October 24, 2005",
+         "incorrect_answers":[  
+            "October 21, 2005",
+            "March 29, 2006",
+            "November 22, 2004"
+         ]
+      },
+      {  
+         "category":"Entertainment: Music",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"Which rock band released the album &quot;The Bends&quot; in March 1995?",
+         "correct_answer":"Radiohead",
+         "incorrect_answers":[  
+            "Nirvana",
+            "Coldplay",
+            "U2"
+         ]
+      },
+      {  
+         "category":"Entertainment: Cartoon & Animations",
+         "type":"multiple",
+         "difficulty":"easy",
+         "question":"Which of these characters live in a pineapple under the sea in the cartoon &quot;SpongeBob SquarePants&quot;.",
+         "correct_answer":"SpongeBob SquarePants ",
+         "incorrect_answers":[  
+            "Patrick Star",
+            "Squidward Tentacles",
+            "Mr. Krabs"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What former MOBA, created by Waystone Games and published by EA, was shut down in 2014?",
+         "correct_answer":"Dawngate",
+         "incorrect_answers":[  
+            "Strife",
+            "League of Legends",
+            "Heroes of Newerth"
+         ]
+      },
+      {  
+         "category":"Politics",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"What was the personal nickname of the 40th Governor of the US State Louisiana, Huey Long?",
+         "correct_answer":"The Kingfish",
+         "incorrect_answers":[  
+            "The Champ",
+            "The Hoot Owl",
+            "The Oracle"
+         ]
+      },
+      {  
+         "category":"Entertainment: Television",
+         "type":"multiple",
+         "difficulty":"medium",
+         "question":"In &quot;The Simpsons&quot;, what is the real name of &quot;Comic Book Guy&quot;?",
+         "correct_answer":"Jeff Albertson",
+         "incorrect_answers":[  
+            "Comic Book Guy",
+            "Edward Stone",
+            "Jack Richardson"
+         ]
+      },
+      {  
+         "category":"Entertainment: Video Games",
+         "type":"multiple",
+         "difficulty":"hard",
+         "question":"In Guild Wars 2, what was Scarlet Briar&#039;s original name?",
+         "correct_answer":"Ceara",
+         "incorrect_answers":[  
+            "Scarlet",
+            "Serimon",
+            "Omadd"
+         ]
       }
    ]
 }

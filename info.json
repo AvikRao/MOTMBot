@@ -4,19 +4,19 @@
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
-    "points": 112,
+    "points": 148,
     "challenged": false
   },
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 22,
+    "points": 23,
     "challenged": false
   },
   "user3": {
     "id": "168819018906599433",
     "nickname": "Mr. Flornp",
-    "points": 228,
+    "points": 257,
     "challenged": false
   },
   "user4": {
@@ -34,32 +34,32 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "everyane",
-    "points": 1091,
+    "points": 1173,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 83,
+    "points": 61,
     "challenged": false
   },
   "user8": {
     "id": "230170287428206592",
     "nickname": "Zyber",
-    "points": 3,
+    "points": 4,
     "challenged": false
   },
   "user9": {
     "id": "237350157019119616",
     "nickname": "So lar.",
-    "points": 2,
+    "points": 21,
     "challenged": false
   },
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 1314,
-    "challenged": true
+    "points": 1605,
+    "challenged": false
   },
   "user11": {
     "id": "270360610338766850",

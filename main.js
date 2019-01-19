@@ -4,8 +4,8 @@ const trivia = require("./questions.json");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var player1 = null; var player2 = null; var currentPlayer = null; var bet = 0;
-var challengeAccepted = false; var declined = false; var gameStarted = false;
-var question = null; var answers = [];
+var challengeAccepted = false; var declined = false; var gameStarted = false; var reset = false;
+var question = null; var answers = []; var corrects = [null, null];
 
 // open JSON file for member properties
 let file = editJsonFile(`${__dirname}/info.json`, {
@@ -44,18 +44,18 @@ function shuffle (array) {
 }
 
 function challengereset () {
-   if (!challengeAccepted && !declined) {
+   if (!challengeAccepted && !declined && !reset) {
       for (let i = 1; i <= file.get("usercount"); i++) {
          file.set(`user${i}.challenged`, false);
       }
-      
       client.channels.get('504057505266270210').send(embed.setDescription(`${player1.user}, your challenge to ${player2.user} has expired. You may now re-challenge them or challenge someone else.`));
       player1 = null;
       player2 = null;
       currentPlayer = null;
       gameStarted = false;
-      question = null; answers = null;
+      question = null; answers = [];
    }
+   reset = false;
    declined = false;
 }
 
@@ -69,6 +69,13 @@ function embedReset () {
 // Let console know the bot's started
 client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`);
+   for (let i = 1; i <= file.get("usercount"); i++) {
+      file.set(`user${i}.challenged`, false);
+   }
+   challengeAccepted = false;
+   gameStarted = false;
+   player1 = null; player2 = null; currentPlayer = null;
+   question = null; answers = null;
 });
 
 // When someone new joins the server
@@ -213,8 +220,8 @@ client.on('message', msg => {
                msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
             } else {
                // The challenge is valid, send the invitation and set up variables
-               player1 = msg.member;
-               player2 = msg.mentions.members.first();
+               player1 = msg.author;
+               player2 = msg.mentions.members.first().user;
                bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                for (let i = 1; i <= file.get("usercount"); i++) {
                   if (file.get(`user${i}.id`) == player2.id) {
@@ -223,7 +230,7 @@ client.on('message', msg => {
                   }
                }
                msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}** for **${bet} points**! This challenge expires in 5 minutes - use !accept to accept.`));
-               setTimeout(challengereset, 10000); // Expire after 5 minutes
+               setTimeout(challengereset, 300000); // Expire after 5 minutes
             }
             break;
             
@@ -265,6 +272,7 @@ client.on('message', msg => {
                      file.set(`user${i}.challenged`, false);
                      player1 = null;
                      player2 = null;
+                     bet = 0;
                      currentPlayer = null;
                      declined = true;
                      gameStarted = false;
@@ -282,10 +290,12 @@ client.on('message', msg => {
             for (let i = 1; i <= file.get("usercount"); i++) {
                file.set(`user${i}.challenged`, false);
             }
+            reset = true;
             challengeAccepted = false;
             gameStarted = false;
             player1 = null; player2 = null; currentPlayer = null;
             question = null; answers = null;
+            bet = 0;
             msg.reply(embed.setDescription("All challenges have been reset!"));
             break;
          
@@ -300,26 +310,137 @@ client.on('message', msg => {
                switch (msg.content.substring(firstspace).trim()) {
                   case "a" : // Fallthrough
                   case "A" :
-                     if (question.correct_answer == answers[0]) msg.reply(embed.setDescription("**Correct!**"));
-                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     if (question.correct_answer == answers[0]) {
+                        if (currentPlayer == player1) { corrects[0] = true; corrects[1] == null; }
+                        else corrects[1] == true;
+                        msg.reply(embed.setDescription("**Correct!**"));
+                     } else {
+                        if (currentPlayer == player1) { corrects[0] = false; corrects[1] == null; }
+                        else corrects[1] = false;
+                        msg.reply(embed.setDescription("**Incorrect!**"));
+                     }
                      break;
                   case "b" : // Fallthrough
                   case "B" :
-                     if (question.correct_answer == answers[1]) msg.reply(embed.setDescription("**Correct!**"));
-                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     if (question.correct_answer == answers[1]) {
+                        if (currentPlayer == player1) { corrects[0] = true; corrects[1] == null; }
+                        else corrects[1] == true;
+                        msg.reply(embed.setDescription("**Correct!**"));
+                     } else {
+                        if (currentPlayer == player1) { corrects[0] = false; corrects[1] == null; }
+                        else corrects[1] = false;
+                        msg.reply(embed.setDescription("**Incorrect!**"));
+                     }
                      break;
                   case "c" : // Fallthrough
                   case "C" :
-                     if (question.type == "boolean") msg.reply(embed.setDescription("There is no answer C!"));
-                     else if (question.correct_answer == answers[2]) msg.reply(embed.setDescription("**Correct!**"));
-                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     if (question.type == "boolean") {
+                        msg.reply(embed.setDescription("There is no answer C!"));
+                     } else if (question.correct_answer == answers[2]) {
+                        if (currentPlayer == player1) { corrects[0] = true; corrects[1] == null; }
+                        else corrects[1] == true;
+                        msg.reply(embed.setDescription("**Correct!**"));
+                     } else {
+                        if (currentPlayer == player1) { corrects[0] = false; corrects[1] == null; }
+                        else corrects[1] = false;
+                        msg.reply(embed.setDescription("**Incorrect!**"));
+                     }
                      break;
-                  case "d" : // Falthrough
+                  case "d" : // Fallthrough
                   case "D" :
-                     if (question.type == "boolean") msg.reply(embed.setDescription("There is no answer D!"));
-                     else if (question.correct_answer == answers[3]) msg.reply(embed.setDescription("**Correct!**"));
-                     else msg.reply(embed.setDescription("**Incorrect!**"));
+                     if (question.type == "boolean") {
+                        msg.reply(embed.setDescription("There is no answer D!"));
+                     } else if (question.correct_answer == answers[3]) {
+                        if (currentPlayer == player1) { corrects[0] = true; corrects[1] == null; }
+                        else corrects[1] == true;
+                        msg.reply(embed.setDescription("**Correct!**"));
+                     } else {
+                        if (currentPlayer == player1) { corrects[0] = false; corrects[1] == null; }
+                        else corrects[1] = false;
+                        msg.reply(embed.setDescription("**Incorrect!**"));
+                     }
                      break;
+               }
+               
+               console.log(corrects);
+               if (corrects[0] == false && corrects[1] == true) {
+                  msg.channel.send(embed.setDescription(`**${player2} wins!** Congratulations - **${bet}** points have been added to your account.`));
+                  for (let i = 1; i <= file.get("usercount"); i++) {
+                     if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
+                     else if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
+                     file.set(`user${i}.challenged`, false);
+                  }
+                  reset = false;
+                  challengeAccepted = false;
+                  gameStarted = false; bet = 0;
+                  player1 = null; player2 = null; currentPlayer = null;
+                  question = null; answers = []; corrects = [null, null];
+               } else if (corrects[0] == true && corrects[1] == false) {
+                  msg.channel.send(embed.setDescription(`**${player1} wins!** Congratulations - **${bet}** points have been added to your account.`));
+                  for (let i = 1; i <= file.get("usercount"); i++) {
+                     if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
+                     else if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
+                     file.set(`user${i}.challenged`, false);
+                  }
+                  reset = false;
+                  challengeAccepted = false;
+                  gameStarted = false; bet = 0;
+                  player1 = null; player2 = null; currentPlayer = null;
+                  question = null; answers = []; corrects = [null, null]
+               } else if (corrects[0] == true && corrects[1] == true) {
+                  msg.channel.send(embed.setDescription(`Both players were correct! It's ${player1}'s turn!`));
+                  currentPlayer = player2;
+                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                  if (question.type == "multiple") {
+                     let qType = "Multiple Choice";
+                     answers = [question.correct_answer];
+                     for (let wrong of question.incorrect_answers) {
+                        answers.push(wrong);
+                     }
+                     answers = shuffle(answers);
+                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                  } else if (question.type == "boolean") {
+                     let qType = "True/False";
+                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", "True", true).addField("B", "False", true));
+                  }
+               } else if (corrects[0] == false && corrects[1] == false) {
+                  let letter = "";
+                  for (let i = 0; i < answers.length; i++) {
+                     if (answers[i] == question.correct_answer) letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(i).toString();
+                  }
+                  currentPlayer = player1;
+                  msg.channel.send(embed.setDescription(`Both players were incorrect! The correct answer was ${letter}: ${question.correct_answer}. \nIt's ${player1}'s turn!`));
+                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                  if (question.type == "multiple") {
+                     let qType = "Multiple Choice";
+                     answers = [question.correct_answer];
+                     for (let wrong of question.incorrect_answers) {
+                        answers.push(wrong);
+                     }
+                     answers = shuffle(answers);
+                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                  } else if (question.type == "boolean") {
+                     let qType = "True/False";
+                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", "True", true).addField("B", "False", true));
+                  }
+               } else if ( (corrects[0] == true || corrects[0] == false) && corrects[1] == null) {
+                  msg.channel.send(embed.setDescription(`It's ${player2}'s turn!`));
+                  currentPlayer = player2;
+                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                  if (question.type == "multiple") {
+                     let qType = "Multiple Choice";
+                     answers = [question.correct_answer];
+                     for (let wrong of question.incorrect_answers) {
+                        answers.push(wrong);
+                     }
+                     answers = shuffle(answers);
+                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                  } else if (question.type == "boolean") {
+                     let qType = "True/False";
+                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", "True", true).addField("B", "False", true));
+                  }
+               } else {
+                  msg.channel.send(embed.setDescription("Something went wrong. Try !reset"));
                }
             }
             break;
