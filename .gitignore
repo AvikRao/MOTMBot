@@ -5,5 +5,8 @@ auth.json
 node_modules
 
 # Ignore the constant updates to members' points
-info.json 
+info.json
+
+# Ignore audio files
+*.mp3 
 

@@ -84,7 +84,7 @@ client.on('guildMemberAdd', gm => {
    // add a new entry in users.json for the new member
    file.set("usercount", file.get("usercount") + 1);
    file.set(`user${file.get("usercount")}.id`, gm.id);
-   file.set(`user${file.get("usercount")}.nickname`, gm.nickname);
+   file.set(`user${file.get("usercount")}.nickname`, gm.displayName);
    file.set(`user${file.get("usercount")}.points`, 0);
    // send a welcome message
    client.channels.get('504057505266270210').send(`${gm.user}, welcome to **${gm.guild.name}**! __Please visit__ #game-select __to set your roles and check out__ #announcements __for info about the server__.`);
@@ -444,6 +444,15 @@ client.on('message', msg => {
                }
             }
             break;
+
+         case "scream" :
+            let channel = msg.guild.channels.get("504057505266270212");
+            channel.join()
+               .then(connection => {
+                  const dispatcher = connection.playFile("./wilhelm.mp3");
+               })
+               .catch(console.error);
+            channel.leave();
       }
    }
     

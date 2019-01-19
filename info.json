@@ -1,6 +1,6 @@
 {
   "prefix": "!",
-  "usercount": 22,
+  "usercount": 23,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
@@ -10,7 +10,7 @@
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 23,
+    "points": 24,
     "challenged": false
   },
   "user3": {
@@ -34,7 +34,7 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "everyane",
-    "points": 1173,
+    "points": 1174,
     "challenged": false
   },
   "user7": {
@@ -58,7 +58,7 @@
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 1605,
+    "points": 1626,
     "challenged": false
   },
   "user11": {
@@ -131,6 +131,12 @@
     "id": "532192754550308865",
     "nickname": "MOTMBot",
     "points": 0,
+    "challenged": false
+  },
+  "user23": {
+    "id": "279752331166482432",
+    "nickname": "Jacob Anderson",
+    "points": 2,
     "challenged": false
   }
 }
