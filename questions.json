@@ -1167,8 +1167,8 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"What is the name of &quot;Team Fortress 2&quot; update, in which it became Free-to-play?",
-         "correct_answer":"&Uuml;ber Update",
+         "question":"What is the name of \"Team Fortress 2\" update, in which it became Free-to-play?",
+         "correct_answer":"Über Update",
          "incorrect_answers":[  
             "Pyromania Update",
             "Mann-Conomy Update",
@@ -1203,7 +1203,7 @@
          "category":"Entertainment: Music",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"&quot;Some people call me the space cowboy&quot; is the first line from what song?",
+         "question":"\"Some people call me the space cowboy\" is the first line from what song?",
          "correct_answer":"The Joker",
          "incorrect_answers":[  
             "Fandango",
@@ -1215,7 +1215,7 @@
          "category":"Entertainment: Cartoon & Animations",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which &quot;Toy Story&quot; character was voiced by Don Rickles?",
+         "question":"Which \"Toy Story\" character was voiced by Don Rickles?",
          "correct_answer":"Mr. Potato Head",
          "incorrect_answers":[  
             "Slinky Dog",
@@ -1285,8 +1285,8 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"In &quot;Clash Royale&quot; what is Arena 4 called?",
-         "correct_answer":"P.E.K.K.A&#039;s Playhouse",
+         "question":"In \"Clash Royale\" what is Arena 4 called?",
+         "correct_answer":"P.E.K.K.A's Playhouse",
          "incorrect_answers":[  
             "Barbarian Bowl",
             "Spell Valley",
@@ -1297,7 +1297,7 @@
          "category":"Entertainment: Cartoon & Animations",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"When did the last episode of &quot;Futurama&quot; air?",
+         "question":"When did the last episode of \"Futurama\" air?",
          "correct_answer":"September 4, 2013",
          "incorrect_answers":[  
             "December 25, 2010",
@@ -1321,7 +1321,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Which of these is NOT a team available in the game Pok&eacute;mon Go?",
+         "question":"Which of these is NOT a team available in the game Pokémon Go?",
          "correct_answer":"Team Rocket",
          "incorrect_answers":[  
             "Team Instinct",
@@ -1333,7 +1333,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"In the fighting game &quot;Skullgirls,&quot; which character utilizes a folding chair called the &quot;Hurting&quot; as a weapon?",
+         "question":"In the fighting game \"Skullgirls,\" which character utilizes a folding chair called the \"Hurting\" as a weapon?",
          "correct_answer":"Beowulf",
          "incorrect_answers":[  
             "Big Band",
@@ -1350,14 +1350,14 @@
          "incorrect_answers":[  
             "The Showdown (Australia)",
             "Verstappen on Fire (Germany)",
-            "Schumacher&#039;s Ban (Britain)"
+            "Schumacher's Ban (Britain)"
          ]
       },
       {  
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"In &quot;Sonic the Hedgehog 3&quot; for the Sega Genesis, what is the color of the second Chaos Emerald you can get from Special Stages?",
+         "question":"In \"Sonic the Hedgehog 3\" for the Sega Genesis, what is the color of the second Chaos Emerald you can get from Special Stages?",
          "correct_answer":"Orange",
          "incorrect_answers":[  
             "Blue",
@@ -1381,7 +1381,7 @@
          "category":"Animals",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"What are rhino&#039;s horn made of?",
+         "question":"What are rhino's horn made of?",
          "correct_answer":"Keratin",
          "incorrect_answers":[  
             "Bone",
@@ -1393,12 +1393,12 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which of the following Pok&eacute;mon games released first?",
-         "correct_answer":"Pok&eacute;mon Crystal",
+         "question":"Which of the following Pokémon games released first?",
+         "correct_answer":"Pokémon Crystal",
          "incorrect_answers":[  
-            "Pok&eacute;mon Platinum",
-            "Pok&eacute;mon FireRed",
-            "Pok&eacute;mon Black"
+            "Pokémon Platinum",
+            "Pokémon FireRed",
+            "Pokémon Black"
          ]
       },
       {  
@@ -1463,7 +1463,7 @@
          "category":"Entertainment: Film",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"What is the correct phrase for the Latin saying &quot;Romanes Eunt Domus&quot; in Monty Python&#039;s Life of Brian?",
+         "question":"What is the correct phrase for the Latin saying \"Romanes Eunt Domus\" in Monty Python's Life of Brian?",
          "correct_answer":"Romani Ite Domum",
          "incorrect_answers":[  
             "Romans Go Home",
@@ -1485,7 +1485,7 @@
          "category":"Entertainment: Film",
          "type":"boolean",
          "difficulty":"hard",
-         "question":"&quot;Cube&quot;, &quot;Cube 2: Hypercube&quot; and &quot;Cube Zero&quot; were directed by the same person.",
+         "question":"\"Cube\", \"Cube 2: Hypercube\" and \"Cube Zero\" were directed by the same person.",
          "correct_answer":"False",
          "incorrect_answers":[  
             "True"
@@ -1507,7 +1507,7 @@
          "category":"Entertainment: Video Games",
          "type":"boolean",
          "difficulty":"medium",
-         "question":"In Riot Games &quot;League of Legends&quot; the name of Halloween event is called &quot;The Reckoning&quot;.",
+         "question":"In Riot Games \"League of Legends\" the name of Halloween event is called \"The Reckoning\".",
          "correct_answer":"False",
          "incorrect_answers":[  
             "True"
@@ -1517,7 +1517,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"&quot;Gimmick!&quot; is a Japanese Famicom game that uses a sound chip expansion in the cartridge. What is it called?",
+         "question":"\"Gimmick!\" is a Japanese Famicom game that uses a sound chip expansion in the cartridge. What is it called?",
          "correct_answer":"FME-7",
          "incorrect_answers":[  
             "VRC7",
@@ -1541,7 +1541,7 @@
          "category":"Entertainment: Television",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"In season one of the Netflix political drama &quot;House of Cards&quot;, what government position does Frank Underwood hold?",
+         "question":"In season one of the Netflix political drama \"House of Cards\", what government position does Frank Underwood hold?",
          "correct_answer":"House Majority Whip",
          "incorrect_answers":[  
             "Attorney General",
@@ -1553,7 +1553,7 @@
          "category":"Celebrities",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"How much weight did Chris Pratt lose for his role as Star-Lord in &quot;Guardians of the Galaxy&quot;?",
+         "question":"How much weight did Chris Pratt lose for his role as Star-Lord in \"Guardians of the Galaxy\"?",
          "correct_answer":"60 lbs",
          "incorrect_answers":[  
             "30 lbs",
@@ -1577,7 +1577,7 @@
          "category":"Entertainment: Television",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"When Donkey Kong died in the &quot;Donkey Kong Country&quot; episode &quot;It&#039;s a Wonderful Life&quot;, who was his guardian angel?",
+         "question":"When Donkey Kong died in the \"Donkey Kong Country\" episode \"It's a Wonderful Life\", who was his guardian angel?",
          "correct_answer":"Eddie the Mean Old Yeti",
          "incorrect_answers":[  
             "Kiddy Kong",
@@ -1589,7 +1589,7 @@
          "category":"Entertainment: Japanese Anime & Manga",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Ikki Kurogane is known by what nickname at the beginning of &quot;Chivalry of a Failed Knight&quot;?",
+         "question":"Ikki Kurogane is known by what nickname at the beginning of \"Chivalry of a Failed Knight\"?",
          "correct_answer":"Worst One",
          "incorrect_answers":[  
             "Another One",
@@ -1601,7 +1601,7 @@
          "category":"Vehicles",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"What is the name of Nissan&#039;s most popular electric car?",
+         "question":"What is the name of Nissan's most popular electric car?",
          "correct_answer":"Leaf",
          "incorrect_answers":[  
             "Tree",
@@ -1647,7 +1647,7 @@
          "category":"Entertainment: Film",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"Before &quot;Jurassic Park III&quot; was finalized and the Spinosaurus was chosen, which dinosaur was going to be the star?",
+         "question":"Before \"Jurassic Park III\" was finalized and the Spinosaurus was chosen, which dinosaur was going to be the star?",
          "correct_answer":"Baryonyx",
          "incorrect_answers":[  
             "Tyrannosaurus Rex",
@@ -1683,7 +1683,7 @@
          "category":"Entertainment: Board Games",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"In &quot;Magic: The Gathering&quot;, what instant card has the highest converted mana cost?",
+         "question":"In \"Magic: The Gathering\", what instant card has the highest converted mana cost?",
          "correct_answer":"Blinkmoth Infusion",
          "incorrect_answers":[  
             "Vitalizing Wind",
@@ -1712,7 +1712,7 @@
          "incorrect_answers":[  
             "Shadow of the Colossus",
             "ICO",
-            "Beyond Good &amp; Evil"
+            "Beyond Good & Evil"
          ]
       },
       {  
@@ -1731,7 +1731,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which pop singer was brought in by SEGA to produce the music for &quot;Sonic the Hedgehog 3&quot;?",
+         "question":"Which pop singer was brought in by SEGA to produce the music for \"Sonic the Hedgehog 3\"?",
          "correct_answer":"Michael Jackson ",
          "incorrect_answers":[  
             "Prince",
@@ -1827,7 +1827,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Who is the protagonist in the game &quot;The Walking Dead: Season One&quot;?",
+         "question":"Who is the protagonist in the game \"The Walking Dead: Season One\"?",
          "correct_answer":"Lee Everett",
          "incorrect_answers":[  
             "Clementine",
@@ -1839,7 +1839,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Who is the writer of the game &quot;Half-Life&quot;?",
+         "question":"Who is the writer of the game \"Half-Life\"?",
          "correct_answer":"Marc Laidlaw",
          "incorrect_answers":[  
             "Gabe Newell",
@@ -1856,14 +1856,14 @@
          "incorrect_answers":[  
             "The Simpsons",
             "Family Guy",
-            "Bob&#039;s Burgers"
+            "Bob's Burgers"
          ]
       },
       {  
          "category":"Art",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which artist&rsquo;s studio was known as &#039;The Factory&#039;?",
+         "question":"Which artist&rsquo;s studio was known as 'The Factory'?",
          "correct_answer":"Andy Warhol",
          "incorrect_answers":[  
             "Roy Lichtenstein",
@@ -1875,7 +1875,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"The map featured in Arma 3 named &quot;Altis&quot; is based off of what Greek island?",
+         "question":"The map featured in Arma 3 named \"Altis\" is based off of what Greek island?",
          "correct_answer":"Lemnos",
          "incorrect_answers":[  
             "Ithaca",
@@ -1899,7 +1899,7 @@
          "category":"Science: Mathematics",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"What&#039;s the square root of 49?",
+         "question":"What's the square root of 49?",
          "correct_answer":"7",
          "incorrect_answers":[  
             "4",
@@ -1959,7 +1959,7 @@
          "category":"General Knowledge",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"What is the name of the popular animatronic singing fish prop, singing such hits such as &quot;Don&#039;t Worry, Be Happy&quot;?",
+         "question":"What is the name of the popular animatronic singing fish prop, singing such hits such as \"Don't Worry, Be Happy\"?",
          "correct_answer":"Big Mouth Billy Bass",
          "incorrect_answers":[  
             "Big Billy Bass",
@@ -2019,12 +2019,12 @@
          "category":"Entertainment: Television",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Dee from &quot;It&#039;s Always Sunny in Philadelphia&quot; has dated all of the following guys EXCEPT",
-         "correct_answer":"Matthew &quot;Rickety Cricket&quot; Mara",
+         "question":"Dee from \"It's Always Sunny in Philadelphia\" has dated all of the following guys EXCEPT",
+         "correct_answer":"Matthew \"Rickety Cricket\" Mara",
          "incorrect_answers":[  
             "Colin the Thief",
             "Ben the Soldier",
-            "Kevin Gallagher aka Lil&#039; Kevin"
+            "Kevin Gallagher aka Lil' Kevin"
          ]
       },
       {  
@@ -2043,7 +2043,7 @@
          "category":"Science: Computers",
          "type":"boolean",
          "difficulty":"easy",
-         "question":"In most programming languages, the operator ++ is equivalent to the statement &quot;+= 1&quot;.",
+         "question":"In most programming languages, the operator ++ is equivalent to the statement \"+= 1\".",
          "correct_answer":"True",
          "incorrect_answers":[  
             "False"
@@ -2065,7 +2065,7 @@
          "category":"General Knowledge",
          "type":"boolean",
          "difficulty":"easy",
-         "question":"One of Donald Trump&#039;s 2016 Presidential Campaign promises was to build a border wall between the United States and Mexico.",
+         "question":"One of Donald Trump's 2016 Presidential Campaign promises was to build a border wall between the United States and Mexico.",
          "correct_answer":"True",
          "incorrect_answers":[  
             "False"
@@ -2085,7 +2085,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"Which Kingdom Hearts game featured the cast of &quot;The World Ends With You&quot;?",
+         "question":"Which Kingdom Hearts game featured the cast of \"The World Ends With You\"?",
          "correct_answer":"Dream Drop Distance",
          "incorrect_answers":[  
             "Birth By Sleep",
@@ -2097,7 +2097,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Which of the following is not a faction in Tom Clancy&#039;s The Division?",
+         "question":"Which of the following is not a faction in Tom Clancy's The Division?",
          "correct_answer":"CDC",
          "incorrect_answers":[  
             "Cleaners",
@@ -2131,7 +2131,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"In the title of the game &quot;Luigi&#039;s Mansion&quot;, what is the only letter to not appear with a pair of eyes in it?",
+         "question":"In the title of the game \"Luigi's Mansion\", what is the only letter to not appear with a pair of eyes in it?",
          "correct_answer":"s",
          "incorrect_answers":[  
             "n",
@@ -2167,7 +2167,7 @@
          "category":"Entertainment: Music",
          "type":"boolean",
          "difficulty":"easy",
-         "question":"Stevie Wonder&#039;s real name is Stevland Hardaway Morris.",
+         "question":"Stevie Wonder's real name is Stevland Hardaway Morris.",
          "correct_answer":"True",
          "incorrect_answers":[  
             "False"
@@ -2177,7 +2177,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"How many trophies are there in &quot;Super Smash Bros. for Nintendo 3DS&quot;?",
+         "question":"How many trophies are there in \"Super Smash Bros. for Nintendo 3DS\"?",
          "correct_answer":"685",
          "incorrect_answers":[  
             "1360",
@@ -2201,7 +2201,7 @@
          "category":"Entertainment: Film",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Who played the Cenobite called &quot;Pinhead&quot; in the original Hellraiser films?",
+         "question":"Who played the Cenobite called \"Pinhead\" in the original Hellraiser films?",
          "correct_answer":"Doug Bradley",
          "incorrect_answers":[  
             "Doug Jones",
@@ -2271,7 +2271,7 @@
          "category":"Entertainment: Music",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"Which rock band released the album &quot;The Bends&quot; in March 1995?",
+         "question":"Which rock band released the album \"The Bends\" in March 1995?",
          "correct_answer":"Radiohead",
          "incorrect_answers":[  
             "Nirvana",
@@ -2283,7 +2283,7 @@
          "category":"Entertainment: Cartoon & Animations",
          "type":"multiple",
          "difficulty":"easy",
-         "question":"Which of these characters live in a pineapple under the sea in the cartoon &quot;SpongeBob SquarePants&quot;.",
+         "question":"Which of these characters live in a pineapple under the sea in the cartoon \"SpongeBob SquarePants\".",
          "correct_answer":"SpongeBob SquarePants ",
          "incorrect_answers":[  
             "Patrick Star",
@@ -2319,7 +2319,7 @@
          "category":"Entertainment: Television",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"In &quot;The Simpsons&quot;, what is the real name of &quot;Comic Book Guy&quot;?",
+         "question":"In \"The Simpsons\", what is the real name of \"Comic Book Guy\"?",
          "correct_answer":"Jeff Albertson",
          "incorrect_answers":[  
             "Comic Book Guy",
@@ -2331,7 +2331,7 @@
          "category":"Entertainment: Video Games",
          "type":"multiple",
          "difficulty":"hard",
-         "question":"In Guild Wars 2, what was Scarlet Briar&#039;s original name?",
+         "question":"In Guild Wars 2, what was Scarlet Briar's original name?",
          "correct_answer":"Ceara",
          "incorrect_answers":[  
             "Scarlet",

@@ -1,22 +1,22 @@
 {
   "prefix": "!",
-  "usercount": 23,
+  "usercount": 26,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
-    "points": 148,
+    "points": 204,
     "challenged": false
   },
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 24,
+    "points": 32,
     "challenged": false
   },
   "user3": {
     "id": "168819018906599433",
-    "nickname": "Mr. Flornp",
-    "points": 257,
+    "nickname": "Xinon",
+    "points": 260,
     "challenged": false
   },
   "user4": {
@@ -33,14 +33,14 @@
   },
   "user6": {
     "id": "229389449254010881",
-    "nickname": "everyane",
-    "points": 1174,
+    "nickname": "Truesephah",
+    "points": 1586,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 61,
+    "points": 67,
     "challenged": false
   },
   "user8": {
@@ -58,7 +58,7 @@
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 1626,
+    "points": 1588,
     "challenged": false
   },
   "user11": {
@@ -88,19 +88,19 @@
   "user15": {
     "id": "285553932816613376",
     "nickname": "wow",
-    "points": 17,
+    "points": 146,
     "challenged": false
   },
   "user16": {
     "id": "297845177341706252",
     "nickname": "lmao im dying",
-    "points": 0,
+    "points": 24,
     "challenged": false
   },
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 4,
+    "points": 13,
     "challenged": false
   },
   "user18": {
@@ -136,7 +136,25 @@
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jacob Anderson",
-    "points": 2,
+    "points": 40,
+    "challenged": false
+  },
+  "user24": {
+    "id": "403676686794752015",
+    "nickname": "Warhound007",
+    "points": 34,
+    "challenged": false
+  },
+  "user25": {
+    "id": "251908904005533699",
+    "nickname": "Akira",
+    "points": 10,
+    "challenged": false
+  },
+  "user26": {
+    "id": "295380006048104458",
+    "nickname": "ZweegZwaggington",
+    "points": 1,
     "challenged": false
   }
 }
