@@ -1,16 +1,16 @@
 {
   "prefix": "!",
-  "usercount": 26,
+  "usercount": 27,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
-    "points": 204,
+    "points": 214,
     "challenged": false
   },
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 32,
+    "points": 34,
     "challenged": false
   },
   "user3": {
@@ -34,14 +34,14 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "Truesephah",
-    "points": 1586,
+    "points": 1790,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 67,
-    "challenged": false
+    "points": 57,
+    "challenged": true
   },
   "user8": {
     "id": "230170287428206592",
@@ -58,7 +58,7 @@
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 1588,
+    "points": 1659,
     "challenged": false
   },
   "user11": {
@@ -100,7 +100,7 @@
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 13,
+    "points": 16,
     "challenged": false
   },
   "user18": {
@@ -130,13 +130,13 @@
   "user22": {
     "id": "532192754550308865",
     "nickname": "MOTMBot",
-    "points": 0,
+    "points": -1,
     "challenged": false
   },
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jacob Anderson",
-    "points": 40,
+    "points": 61,
     "challenged": false
   },
   "user24": {
@@ -155,6 +155,12 @@
     "id": "295380006048104458",
     "nickname": "ZweegZwaggington",
     "points": 1,
+    "challenged": false
+  },
+  "user27": {
+    "id": "166712757717172225",
+    "nickname": "RainbowTacoTurtle",
+    "points": 74,
     "challenged": false
   }
 }

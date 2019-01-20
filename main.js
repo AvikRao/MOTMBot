@@ -322,7 +322,7 @@ client.on('message', msg => {
                      } else {
                         if (currentPlayer == player1) { corrects1 = false; corrects2 = null; }
                         else { corrects2 = false; }
-                        msg.reply(embed.setDescription("**Incorrect!**"));
+                        msg.reply(embed.setDescription(`**Incorrect!**  The correct answer was ${question.correct_answer}.`));
                      }
                      break;
                   case "b" : // Fallthrough
@@ -334,7 +334,7 @@ client.on('message', msg => {
                      } else {
                         if (currentPlayer == player1) { corrects1 = false; corrects2 = null; }
                         else { corrects2 = false; }
-                        msg.reply(embed.setDescription("**Incorrect!**"));
+                        msg.reply(embed.setDescription(`**Incorrect!** The correct answer was ${question.correct_answer}.`));
                      }
                      break;
                   case "c" : // Fallthrough
@@ -348,7 +348,7 @@ client.on('message', msg => {
                      } else {
                         if (currentPlayer == player1) { corrects1 = false; corrects2 = null; }
                         else { corrects2 = false; }
-                        msg.reply(embed.setDescription("**Incorrect!**"));
+                        msg.reply(embed.setDescription(`**Incorrect!** The correct answer was ${question.correct_answer}.`));
                      }
                      break;
                   case "d" : // Fallthrough
@@ -362,7 +362,7 @@ client.on('message', msg => {
                      } else {
                         if (currentPlayer == player1) { corrects1 = false; corrects2 = null; }
                         else { corrects2 = false; }
-                        msg.reply(embed.setDescription("**Incorrect!**"));
+                        msg.reply(embed.setDescription(`**Incorrect!** The correct answer was ${question.correct_answer}.`));
                      }
                      break;
                   default :
@@ -397,7 +397,7 @@ client.on('message', msg => {
                   question = null; answers = []; corrects1 = null; corrects2 = null;
                } else if (corrects1 == true && corrects2 == true) {
                   msg.channel.send(embed.setDescription(`Both players were correct! It's ${player1}'s turn!`));
-                  currentPlayer = player2;
+                  currentPlayer = player1;
                   question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
                   if (question.type == "multiple") {
                      let qType = "Multiple Choice";
@@ -415,7 +415,7 @@ client.on('message', msg => {
                } else if (corrects1 == false && corrects2 == false) {
                   let letter = "";
                   currentPlayer = player1;
-                  msg.channel.send(embed.setDescription(`Both players were incorrect! The correct answer was: ${question.correct_answer}. \nIt's ${player1}'s turn!`));
+                  msg.channel.send(embed.setDescription(`Both players were incorrect! \nIt's ${player1}'s turn!`));
                   question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
                   if (question.type == "multiple") {
                      let qType = "Multiple Choice";
@@ -447,8 +447,6 @@ client.on('message', msg => {
                      answers = ["True", "False"];
                      msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
                   }
-               } else {
-                  msg.channel.send(embed.setDescription("Something went wrong. Try !reset"));
                }
             }
             break;
