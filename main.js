@@ -220,17 +220,34 @@ client.on('message', msg => {
                msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
             } else {
                // The challenge is valid, send the invitation and set up variables
-               player1 = msg.author;
-               player2 = msg.mentions.members.first().user;
                bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
-               for (let i = 1; i <= file.get("usercount"); i++) {
-                  if (file.get(`user${i}.id`) == player2.id) {
-                     file.set(`user${i}.challenged`, true);
+               let greater1 = false;
+               let greater2 = false;
+               for (let i = 1; i <= file.get("usercount"); i ++) {
+                  if (file.get(`user${i}.id`) == msg.author.id && file.get(`user${i}.points`) < bet) {
+                     greater1 = true;
+                     break;
+                  } else if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id && file.get(`user${i}.points`) < bet) {
+                     greater2 = true;
                      break;
                   }
                }
-               msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}** for **${bet} points**! This challenge expires in 5 minutes - use !accept to accept.`));
-               setTimeout(challengereset, 300000); // Expire after 5 minutes
+               
+               if (greater1) msg.reply(embed.setDescription("You cannot bet more than you have!"));
+               else if (greater2) msg.reply(embed.setDescription(`You cannot bet more than ${msg.mentions.members.first().user} has!`));
+               else {
+                  player1 = msg.author;
+                  player2 = msg.mentions.members.first().user;
+                  
+                  for (let i = 1; i <= file.get("usercount"); i++) {
+                     if (file.get(`user${i}.id`) == player2.id) {
+                        file.set(`user${i}.challenged`, true);
+                        break;
+                     }
+                  }
+                  msg.reply(embed.setDescription(`${player2}, you have been challenged by **${msg.member.displayName}** for **${bet} points**! This challenge expires in 5 minutes - use !accept to accept.`));
+                  setTimeout(challengereset, 300000); // Expire after 5 minutes
+               }
             }
             break;
             
@@ -312,6 +329,7 @@ client.on('message', msg => {
                msg.reply(embed.setDescription("You need to pick an answer!"))
                   .catch(console.error);
             } else {
+               let invalid = false;
                switch (msg.content.substring(firstspace).trim()) {
                   case "a" : // Fallthrough
                   case "A" :
@@ -367,85 +385,88 @@ client.on('message', msg => {
                      break;
                   default :
                      msg.reply(embed.setDescription("That's not a valid answer."));
+                     invalid = true;
                      break;
                }
                
                console.log(corrects1); console.log(corrects2);
-               if (corrects1 == false && corrects2 == true) {
-                  msg.channel.send(embed.setDescription(`**${player2} wins!** Congratulations - **${bet}** points have been added to your account.`));
-                  for (let i = 1; i <= file.get("usercount"); i++) {
-                     if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
-                     else if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
-                     file.set(`user${i}.challenged`, false);
-                  }
-                  reset = false;
-                  challengeAccepted = false;
-                  gameStarted = false; bet = 0;
-                  player1 = null; player2 = null; currentPlayer = null;
-                  question = null; answers = []; corrects1 = null; corrects2 = null;
-               } else if (corrects1 == true && corrects2 == false) {
-                  msg.channel.send(embed.setDescription(`**${player1} wins!** Congratulations - **${bet}** points have been added to your account.`));
-                  for (let i = 1; i <= file.get("usercount"); i++) {
-                     if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
-                     else if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
-                     file.set(`user${i}.challenged`, false);
-                  }
-                  reset = false;
-                  challengeAccepted = false;
-                  gameStarted = false; bet = 0;
-                  player1 = null; player2 = null; currentPlayer = null;
-                  question = null; answers = []; corrects1 = null; corrects2 = null;
-               } else if (corrects1 == true && corrects2 == true) {
-                  msg.channel.send(embed.setDescription(`Both players were correct! It's ${player1}'s turn!`));
-                  currentPlayer = player1;
-                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
-                  if (question.type == "multiple") {
-                     let qType = "Multiple Choice";
-                     answers = [question.correct_answer];
-                     for (let wrong of question.incorrect_answers) {
-                        answers.push(wrong);
+               if (!invalid) {
+                  if (corrects1 == false && corrects2 == true) {
+                     msg.channel.send(embed.setDescription(`**${player2} wins!** Congratulations - **${bet}** points have been added to your account.`));
+                     for (let i = 1; i <= file.get("usercount"); i++) {
+                        if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
+                        else if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
+                        file.set(`user${i}.challenged`, false);
                      }
-                     answers = shuffle(answers);
-                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
-                  } else if (question.type == "boolean") {
-                     let qType = "True/False";
-                     answers = ["True", "False"];
-                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
-                  }
-               } else if (corrects1 == false && corrects2 == false) {
-                  let letter = "";
-                  currentPlayer = player1;
-                  msg.channel.send(embed.setDescription(`Both players were incorrect! \nIt's ${player1}'s turn!`));
-                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
-                  if (question.type == "multiple") {
-                     let qType = "Multiple Choice";
-                     answers = [question.correct_answer];
-                     for (let wrong of question.incorrect_answers) {
-                        answers.push(wrong);
+                     reset = false;
+                     challengeAccepted = false;
+                     gameStarted = false; bet = 0;
+                     player1 = null; player2 = null; currentPlayer = null;
+                     question = null; answers = []; corrects1 = null; corrects2 = null;
+                  } else if (corrects1 == true && corrects2 == false) {
+                     msg.channel.send(embed.setDescription(`**${player1} wins!** Congratulations - **${bet}** points have been added to your account.`));
+                     for (let i = 1; i <= file.get("usercount"); i++) {
+                        if (file.get(`user${i}.id`) == player1.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + bet);
+                        else if (file.get(`user${i}.id`) == player2.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - bet);
+                        file.set(`user${i}.challenged`, false);
                      }
-                     answers = shuffle(answers);
-                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
-                  } else if (question.type == "boolean") {
-                     let qType = "True/False";
-                     answers = ["True", "False"];
-                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
-                  }
-               } else if ( (corrects1 == true || corrects1 == false) && corrects2 == null) {
-                  msg.channel.send(embed.setDescription(`It's ${player2}'s turn!`));
-                  currentPlayer = player2;
-                  question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
-                  if (question.type == "multiple") {
-                     let qType = "Multiple Choice";
-                     answers = [question.correct_answer];
-                     for (let wrong of question.incorrect_answers) {
-                        answers.push(wrong);
+                     reset = false;
+                     challengeAccepted = false;
+                     gameStarted = false; bet = 0;
+                     player1 = null; player2 = null; currentPlayer = null;
+                     question = null; answers = []; corrects1 = null; corrects2 = null;
+                  } else if (corrects1 == true && corrects2 == true) {
+                     msg.channel.send(embed.setDescription(`Both players were correct! It's ${player1}'s turn!`));
+                     currentPlayer = player1;
+                     question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                     if (question.type == "multiple") {
+                        let qType = "Multiple Choice";
+                        answers = [question.correct_answer];
+                        for (let wrong of question.incorrect_answers) {
+                           answers.push(wrong);
+                        }
+                        answers = shuffle(answers);
+                        msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                     } else if (question.type == "boolean") {
+                        let qType = "True/False";
+                        answers = ["True", "False"];
+                        msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
                      }
-                     answers = shuffle(answers);
-                     msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
-                  } else if (question.type == "boolean") {
-                     let qType = "True/False";
-                     answers = ["True", "False"];
-                     msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
+                  } else if (corrects1 == false && corrects2 == false) {
+                     let letter = "";
+                     currentPlayer = player1;
+                     msg.channel.send(embed.setDescription(`Both players were incorrect! \nIt's ${player1}'s turn!`));
+                     question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                     if (question.type == "multiple") {
+                        let qType = "Multiple Choice";
+                        answers = [question.correct_answer];
+                        for (let wrong of question.incorrect_answers) {
+                           answers.push(wrong);
+                        }
+                        answers = shuffle(answers);
+                        msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                     } else if (question.type == "boolean") {
+                        let qType = "True/False";
+                        answers = ["True", "False"];
+                        msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
+                     }
+                  } else if ( (corrects1 == true || corrects1 == false) && corrects2 == null) {
+                     msg.channel.send(embed.setDescription(`It's ${player2}'s turn!`));
+                     currentPlayer = player2;
+                     question = trivia.results[Math.floor(Math.random() * trivia.results.length)];
+                     if (question.type == "multiple") {
+                        let qType = "Multiple Choice";
+                        answers = [question.correct_answer];
+                        for (let wrong of question.incorrect_answers) {
+                           answers.push(wrong);
+                        }
+                        answers = shuffle(answers);
+                        msg.channel.send(embed.setTitle(`**${qType}: **`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true).addBlankField(false).addField("C", answers[2], true).addField("D", answers[3], true));
+                     } else if (question.type == "boolean") {
+                        let qType = "True/False";
+                        answers = ["True", "False"];
+                        msg.channel.send(embed.setTitle(`**${qType}**`).setDescription(question.question).addField("A", answers[0], true).addField("B", answers[1], true));
+                     }
                   }
                }
             }
