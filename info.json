@@ -1,6 +1,6 @@
 {
   "prefix": "!",
-  "usercount": 28,
+  "usercount": 33,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
@@ -10,13 +10,13 @@
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 37,
+    "points": 54,
     "challenged": false
   },
   "user3": {
     "id": "168819018906599433",
     "nickname": "Xinon",
-    "points": 260,
+    "points": 266,
     "challenged": false
   },
   "user4": {
@@ -34,19 +34,19 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "Truesephah",
-    "points": 1958,
+    "points": 1827,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 171,
+    "points": 1143,
     "challenged": false
   },
   "user8": {
     "id": "230170287428206592",
     "nickname": "Zyber",
-    "points": 4,
+    "points": 8,
     "challenged": false
   },
   "user9": {
@@ -58,7 +58,7 @@
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 1672,
+    "points": 2193,
     "challenged": false
   },
   "user11": {
@@ -88,19 +88,19 @@
   "user15": {
     "id": "285553932816613376",
     "nickname": "wow",
-    "points": 179,
+    "points": 115,
     "challenged": false
   },
   "user16": {
     "id": "297845177341706252",
     "nickname": "lmao im dying",
-    "points": 24,
+    "points": 27,
     "challenged": false
   },
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 16,
+    "points": 17,
     "challenged": false
   },
   "user18": {
@@ -136,14 +136,14 @@
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jacob Anderson",
-    "points": 63,
+    "points": 354,
     "challenged": false
   },
   "user24": {
     "id": "403676686794752015",
     "nickname": "Warhound007",
-    "points": 34,
-    "challenged": false
+    "points": 604,
+    "challenged": true
   },
   "user25": {
     "id": "251908904005533699",
@@ -166,7 +166,37 @@
   "user28": {
     "id": "322521419999215616",
     "nickname": "Redeye",
+    "points": 3,
+    "challenged": false
+  },
+  "user29": {
+    "id": "173249318994575360",
+    "nickname": "Looper",
+    "points": 498,
+    "challenged": false
+  },
+  "user30": {
+    "id": "150747857832509440",
+    "nickname": "Quiiskk",
     "points": 1,
+    "challenged": false
+  },
+  "user31": {
+    "id": "490193300129710080",
+    "nickname": "BalticBoy01",
+    "points": 1,
+    "challenged": false
+  },
+  "user32": {
+    "id": "311677799888846848",
+    "nickname": ";(",
+    "points": 104,
+    "challenged": false
+  },
+  "user33": {
+    "id": "329652573105553411",
+    "nickname": "Sneakymisha1",
+    "points": 3,
     "challenged": false
   }
 }

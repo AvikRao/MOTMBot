@@ -227,14 +227,14 @@ client.on('message', msg => {
                   if (file.get(`user${i}.id`) == msg.author.id && file.get(`user${i}.points`) < bet) {
                      greater1 = true;
                      break;
-                  } else if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id && file.get(`user${i}.points`) < bet) {
+                  } else if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id && file.get(`user${i}.points`)/2 < bet) {
                      greater2 = true;
                      break;
                   }
                }
                
                if (greater1) msg.reply(embed.setDescription("You cannot bet more than you have!"));
-               else if (greater2) msg.reply(embed.setDescription(`You cannot bet more than ${msg.mentions.members.first().user} has!`));
+               else if (greater2) msg.reply(embed.setDescription(`You cannot bet more than half of ${msg.mentions.members.first().user}'s balance!`));
                else {
                   player1 = msg.author;
                   player2 = msg.mentions.members.first().user;
@@ -472,14 +472,12 @@ client.on('message', msg => {
             }
             break;
 
-         case "scream" :
-            let channel = msg.guild.channels.get("504057505266270212");
-            channel.join()
-               .then(connection => {
-                  const dispatcher = connection.playFile("./wilhelm.mp3");
-               })
-               .catch(console.error);
-            channel.leave();
+         case "communism" :
+            let total = 0.0;
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               total += parseFloat(file.get(`user${i}.points`));
+            }
+            msg.reply(embed.setDescription(`The Союз Советских Социалистических Республик (USSR) has a capital of **${total} rubles**. \nIn our Советский Союз (Soviet Union), each man is pensioned his **${(total/file.get("usercount")).toFixed(2)} rubles**. \n**Приветствую Родину!**`));
       }
    }
     
