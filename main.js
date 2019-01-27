@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 var player1 = null; var player2 = null; var currentPlayer = null; var bet = 0;
 var challengeAccepted = false; var declined = false; var gameStarted = false; var reset = false;
-var question = null; var answers = []; var corrects1 = null; var corrects2 = null; var gameOver = false;
+var question = null; var answers = []; var corrects1 = null; var corrects2 = null;
 
 // open JSON file for member properties
 let file = editJsonFile(`${__dirname}/info.json`, {
@@ -68,6 +68,7 @@ function embedReset () {
 // Let console know the bot's started
 client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`);
+   console.log(`There are ${trivia.results.length} questions available for trivia.`);
    for (let i = 1; i <= file.get("usercount"); i++) {
       file.set(`user${i}.challenged`, false);
    }
@@ -478,9 +479,13 @@ client.on('message', msg => {
                total += parseFloat(file.get(`user${i}.points`));
             }
             msg.reply(embed.setDescription(`The Союз Советских Социалистических Республик (USSR) has a capital of **${total} rubles**. \nIn our Советский Союз (Soviet Union), each man is pensioned his **${(total/file.get("usercount")).toFixed(2)} rubles**. \n**Приветствую Родину!**`));
+            break;
+         
+         case "slots" :
+            break;
       }
    }
-    
+   
    // If they send a message in voting channel, delete it if it's not a valid meme, add votes if it is
    else if ( msg.channel.id == "531170085482659851" ) {
       if ( !(msg.content.includes("http://") || msg.content.includes("https://") || msg.attachments.size > 0) ) {
