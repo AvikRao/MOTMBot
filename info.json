@@ -1,6 +1,6 @@
 {
   "prefix": "!",
-  "usercount": 37,
+  "usercount": 41,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
@@ -10,13 +10,13 @@
   "user2": {
     "id": "159985870458322944",
     "nickname": "MEE6",
-    "points": 94,
+    "points": 113,
     "challenged": false
   },
   "user3": {
     "id": "168819018906599433",
     "nickname": "Xinon",
-    "points": 300,
+    "points": 349,
     "challenged": false
   },
   "user4": {
@@ -34,13 +34,13 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "Truesephah",
-    "points": 2548,
+    "points": 2650,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 2198,
+    "points": 3557,
     "challenged": false
   },
   "user8": {
@@ -52,19 +52,19 @@
   "user9": {
     "id": "237350157019119616",
     "nickname": "So lar.",
-    "points": 21,
+    "points": -4,
     "challenged": false
   },
   "user10": {
     "id": "249992970235936768",
     "nickname": "AcidEpicice",
-    "points": 3020,
+    "points": 3502,
     "challenged": false
   },
   "user11": {
     "id": "270360610338766850",
     "nickname": "JustKeepGamer",
-    "points": 3,
+    "points": 87,
     "challenged": false
   },
   "user12": {
@@ -82,25 +82,25 @@
   "user14": {
     "id": "285042133721677824",
     "nickname": "catto",
-    "points": 395,
+    "points": 366,
     "challenged": false
   },
   "user15": {
     "id": "285553932816613376",
     "nickname": "wow",
-    "points": 1060,
+    "points": 1080,
     "challenged": false
   },
   "user16": {
     "id": "297845177341706252",
     "nickname": "lmao im dying",
-    "points": 390,
+    "points": 333,
     "challenged": false
   },
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 142,
+    "points": 144,
     "challenged": false
   },
   "user18": {
@@ -136,19 +136,19 @@
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jacob Anderson",
-    "points": 1981,
+    "points": 2496,
     "challenged": false
   },
   "user24": {
     "id": "403676686794752015",
     "nickname": "Warhound007",
-    "points": 991,
+    "points": 1177,
     "challenged": false
   },
   "user25": {
     "id": "251908904005533699",
     "nickname": "Akira",
-    "points": 845,
+    "points": 462,
     "challenged": false
   },
   "user26": {
@@ -160,7 +160,7 @@
   "user27": {
     "id": "166712757717172225",
     "nickname": "RainbowTacoTurtle",
-    "points": 1028,
+    "points": 1421,
     "challenged": false
   },
   "user28": {
@@ -190,13 +190,13 @@
   "user32": {
     "id": "311677799888846848",
     "nickname": ";(",
-    "points": 53,
+    "points": 57,
     "challenged": false
   },
   "user33": {
     "id": "329652573105553411",
     "nickname": "Sneakymisha1",
-    "points": 74,
+    "points": 93,
     "challenged": false
   },
   "user34": {
@@ -208,7 +208,7 @@
   "user35": {
     "id": "244610137816301570",
     "nickname": "ItsYaBoiValve",
-    "points": 88,
+    "points": 89,
     "challenged": false
   },
   "user36": {
@@ -221,6 +221,30 @@
     "id": "264961115715403776",
     "nickname": "Dinomandc",
     "points": 2,
+    "challenged": false
+  },
+  "user38": {
+    "id": "313115126544859139",
+    "nickname": "Rambo",
+    "points": 277,
+    "challenged": false
+  },
+  "user39": {
+    "id": "192103251242385408",
+    "nickname": "Gaming_Fiz",
+    "points": -57,
+    "challenged": false
+  },
+  "user40": {
+    "id": "237350157019119616",
+    "nickname": "So lar.",
+    "points": 0,
+    "challenged": false
+  },
+  "user41": {
+    "id": "235088799074484224",
+    "nickname": "Rythm",
+    "points": 7,
     "challenged": false
   }
 }
