@@ -1,6 +1,6 @@
 {
   "prefix": "!",
-  "usercount": 41,
+  "usercount": 47,
   "user1": {
     "id": "109982291832389632",
     "nickname": "Bedrock",
@@ -16,7 +16,7 @@
   "user3": {
     "id": "168819018906599433",
     "nickname": "Xinon",
-    "points": 349,
+    "points": 657,
     "challenged": false
   },
   "user4": {
@@ -34,13 +34,13 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "Truesephah",
-    "points": 2650,
+    "points": 3307,
     "challenged": false
   },
   "user7": {
     "id": "229711809865711616",
-    "nickname": "Romelete",
-    "points": 3557,
+    "nickname": "^^^^ is a llama ^^^^",
+    "points": 4162,
     "challenged": false
   },
   "user8": {
@@ -52,19 +52,19 @@
   "user9": {
     "id": "237350157019119616",
     "nickname": "So lar.",
-    "points": -4,
+    "points": 17,
     "challenged": false
   },
   "user10": {
     "id": "249992970235936768",
-    "nickname": "AcidEpicice",
-    "points": 3502,
+    "nickname": "acid",
+    "points": 4565,
     "challenged": false
   },
   "user11": {
     "id": "270360610338766850",
     "nickname": "JustKeepGamer",
-    "points": 87,
+    "points": 89,
     "challenged": false
   },
   "user12": {
@@ -82,25 +82,25 @@
   "user14": {
     "id": "285042133721677824",
     "nickname": "catto",
-    "points": 366,
+    "points": 316,
     "challenged": false
   },
   "user15": {
     "id": "285553932816613376",
     "nickname": "wow",
-    "points": 1080,
+    "points": 1340,
     "challenged": false
   },
   "user16": {
     "id": "297845177341706252",
     "nickname": "lmao im dying",
-    "points": 333,
+    "points": 767,
     "challenged": false
   },
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 144,
+    "points": 287,
     "challenged": false
   },
   "user18": {
@@ -124,7 +124,7 @@
   "user21": {
     "id": "441751906428256277",
     "nickname": "Reaction Role",
-    "points": 0,
+    "points": 14,
     "challenged": false
   },
   "user22": {
@@ -136,19 +136,19 @@
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jacob Anderson",
-    "points": 2496,
+    "points": 2866,
     "challenged": false
   },
   "user24": {
     "id": "403676686794752015",
     "nickname": "Warhound007",
-    "points": 1177,
+    "points": 1069,
     "challenged": false
   },
   "user25": {
     "id": "251908904005533699",
     "nickname": "Akira",
-    "points": 462,
+    "points": 472,
     "challenged": false
   },
   "user26": {
@@ -160,13 +160,13 @@
   "user27": {
     "id": "166712757717172225",
     "nickname": "RainbowTacoTurtle",
-    "points": 1421,
+    "points": 1642,
     "challenged": false
   },
   "user28": {
     "id": "322521419999215616",
     "nickname": "Redeye",
-    "points": 4,
+    "points": 97,
     "challenged": false
   },
   "user29": {
@@ -190,13 +190,13 @@
   "user32": {
     "id": "311677799888846848",
     "nickname": ";(",
-    "points": 57,
+    "points": -74,
     "challenged": false
   },
   "user33": {
     "id": "329652573105553411",
     "nickname": "Sneakymisha1",
-    "points": 93,
+    "points": 175,
     "challenged": false
   },
   "user34": {
@@ -208,13 +208,13 @@
   "user35": {
     "id": "244610137816301570",
     "nickname": "ItsYaBoiValve",
-    "points": 89,
+    "points": 127,
     "challenged": false
   },
   "user36": {
     "id": "311707564855263234",
     "nickname": "[𝓐𝓼𝓱𝓵𝒆𝔂]",
-    "points": 1,
+    "points": -14,
     "challenged": false
   },
   "user37": {
@@ -245,6 +245,42 @@
     "id": "235088799074484224",
     "nickname": "Rythm",
     "points": 7,
+    "challenged": false
+  },
+  "user42": {
+    "id": "343927380978565132",
+    "nickname": "reddotelkhunter",
+    "points": 25,
+    "challenged": false
+  },
+  "user43": {
+    "id": "372483383059546112",
+    "nickname": "Flamingredboy9",
+    "points": 1,
+    "challenged": false
+  },
+  "user44": {
+    "id": "542899946391732225",
+    "nickname": "rrrr201k",
+    "points": 20,
+    "challenged": false
+  },
+  "user45": {
+    "id": "178328209463574529",
+    "nickname": "Grunkle Squeaky",
+    "points": 295,
+    "challenged": false
+  },
+  "user46": {
+    "id": "426136069004853249",
+    "nickname": "Ninj4dude",
+    "points": 1,
+    "challenged": false
+  },
+  "user47": {
+    "id": "264567117175717888",
+    "nickname": "Dartmiz",
+    "points": 1,
     "challenged": false
   }
 }

@@ -60,8 +60,11 @@ function challengereset () {
 }
 
 function qexpired (questionNumber) {
-   if (questionNumber == current) {
-      return true;
+   if (!(questionNumber == current)) {
+      client.channels.get("536596792826003486").send(embed.setDescription(`${currentPlayer}, time has expired. Your answer has automatically been marked as incorrect.`));
+      if (currentPlayer == player1) {
+         
+      }
    }
 }
 
@@ -87,7 +90,8 @@ client.on('ready', () => {
 
 // When someone new joins the server
 client.on('guildMemberAdd', gm => {
-   gm.addRole(gm.guild.roles.find(role => role.name === "Memes")); // give them the starter role
+   gm.addRole(gm.guild.roles.get("541665988186472459")); // give them the starter role
+   console.log(gm.displayName + "joined the server! Gave them the starter role.");
    // add a new entry in users.json for the new member
    file.set("usercount", file.get("usercount") + 1);
    file.set(`user${file.get("usercount")}.id`, gm.id);
@@ -183,14 +187,14 @@ client.on('message', msg => {
 
          case "top" : // Fallthrough
          case "leaderboard" :
-            embedReset
+            embedReset();
             let toppeople = ["", "", "", "", "", "", "", "", "", ""];
             let topvalues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            for (let current = 0; current < 10; current ++) {
-               for (let i = 1; i <= file.get("usercount"); i++) { 
-                  if (!toppeople.includes(file.get(`user${i}.nickname`)) && file.get(`user${i}.points`) > topvalues[current]) {
-                     topvalues[current] = file.get(`user${i}.points`);
-                     toppeople[current] = file.get(`user${i}.nickname`);
+            for (let i = 0; i < 10; i ++) {
+               for (let g = 1; g <= file.get("usercount"); g++) { 
+                  if (!toppeople.includes(file.get(`user${g}.nickname`)) && file.get(`user${g}.points`) > topvalues[i]) {
+                     topvalues[i] = file.get(`user${g}.points`);
+                     toppeople[i] = file.get(`user${g}.nickname`);
                   }
                }
             }
@@ -307,6 +311,7 @@ client.on('message', msg => {
                      declined = true;
                      gameStarted = false;
                      question = null; answers = null;
+                     current = 0;
                      msg.reply(embed.setDescription(`${msg.author}**, you've declined the challenge!**`));
                   } else {
                      msg.reply(embed.setDescription(`${msg.author}**, you haven't been challenged!**`));
@@ -325,7 +330,8 @@ client.on('message', msg => {
             gameStarted = false;
             player1 = null; player2 = null; currentPlayer = null;
             question = null; answers = null;
-            currents1 = null; currents2 = null;
+            corrects1 = null; corrects2 = null;
+            current = 0;
             bet = 0;
             msg.reply(embed.setDescription("All challenges have been reset!"));
             break;
@@ -490,7 +496,14 @@ client.on('message', msg => {
             msg.reply(embed.setDescription(`The Союз Советских Социалистических Республик (USSR) has a capital of **${total} rubles**. \nIn our Советский Союз (Soviet Union), each man is pensioned his **${(total/file.get("usercount")).toFixed(2)} rubles**. \n**Приветствую Родину!**`));
             break;
          
-         case "slots" :
+         case "update" :
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               if (file.get(`user${i}.id`) == msg.author.id) {
+                  file.set(`user${i}.nickname`, msg.member.displayName);
+                  break;
+               }
+            }
+            msg.reply(embed.setDescription("Updated your information!"));
             break;
       }
    }
@@ -503,9 +516,9 @@ client.on('message', msg => {
             .catch(console.error);
          client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
       } else {
-         msg.react('⬆')
-            .then(sleep(2500))
-            .then(msg.react('⬇'))
+         msg.react(client.emojis.get("539597117921034241"))
+            .then(sleep(5000))
+            .then(msg.react(client.emojis.get("539597129489055754")))
             .then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
             .catch(console.error);
          
@@ -513,13 +526,48 @@ client.on('message', msg => {
    }
 });
 
+// Check if a reacted message is cached and add it to cached if not (applies to old memes + rules page)
+client.on('raw', packet => {
+   
+    // Ignore all events that aren't message reactions
+    if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
+    
+    // Grab the channel to check the message from
+    const channel = client.channels.get(packet.d.channel_id);
+    // There's no need to emit if the message is cached, because the event will fire anyway for that
+    if (channel.messages.has(packet.d.message_id)) return;
+    
+    // Since we have confirmed the message is not cached, let's fetch it
+    channel.fetchMessage(packet.d.message_id).then(message => {
+       
+        const emoji = packet.d.emoji.id ? `${packet.d.emoji.name}:${packet.d.emoji.id}` : packet.d.emoji.name;
+        const reaction = message.reactions.get(emoji);
+        if (reaction) reaction.users.set(packet.d.user_id, client.users.get(packet.d.user_id));
+        
+        // Check which type of event it is before emitting
+        if (packet.t === 'MESSAGE_REACTION_ADD') {
+            client.emit('messageReactionAdd', reaction, client.users.get(packet.d.user_id));
+        }
+        if (packet.t === 'MESSAGE_REACTION_REMOVE') {
+            client.emit('messageReactionRemove', reaction, client.users.get(packet.d.user_id));
+        }
+        
+    });
+});
+
 // If someone reacts to a meme
 client.on("messageReactionAdd", (reaction, user) => {
-
-   if (reaction.message.channel.id == "531170085482659851") {
+   
+   if (reaction.message.id == "541686063668658226") {
+      
+      reaction.message.guild.members.get(user.id).removeRole(reaction.message.guild.roles.get("541665988186472459")); // give them the starter role
+      reaction.message.guild.members.get(user.id).addRole(reaction.message.guild.roles.get("531140375591649292")); // give them the Memes role
+      console.log(reaction.message.guild.members.get(user.id).displayName + "reacted in #rules and received the Memes role.");
+      
+   } else if (reaction.message.channel.id == "531170085482659851") {
 
       // Give points to memer if their meme was upvoted
-      if (reaction.emoji.toString() == '⬆') {
+      if (reaction.emoji == client.emojis.get("539597117921034241")) {
          console.log(user + " upvoted message " + reaction.message.id);
          let authorid = reaction.message.author.id;
          for (let i = 1; i <= file.get("usercount"); i++) {
@@ -532,10 +580,11 @@ client.on("messageReactionAdd", (reaction, user) => {
       }
 
       // Take points from memer if their meme was downvoted
-      if (reaction.emoji.toString() == '⬇') {
-         console.log(user + " upvoted message " + reaction.message.id);
+      if (reaction.emoji == client.emojis.get("539597129489055754")) {
+         console.log(user + " downvoted message " + reaction.message.id);
          let authorid = reaction.message.author.id;
          for (let i = 1; i <= file.get("usercount"); i++) {
+            if (reaction.message.author == user) break;
             if (file.get(`user${i}.id`) == authorid) {
                file.set(`user${i}.points`, file.get(`user${i}.points`) - 30);
                break;
