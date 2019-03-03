@@ -71,7 +71,7 @@ function qexpired (questionNumber) {
 // Reset embed fields
 function embedReset () {
    embed = new Discord.RichEmbed()
-      .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/c3c574b654c949b0ab99d92ae4287381.png?size=2048")
+      .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/97021c7d4a22128c924180655072666f.png?size=2048")
       .setColor(3447003);
 }
 
@@ -91,7 +91,7 @@ client.on('ready', () => {
 // When someone new joins the server
 client.on('guildMemberAdd', gm => {
    gm.addRole(gm.guild.roles.get("541665988186472459")); // give them the starter role
-   console.log(gm.displayName + "joined the server! Gave them the starter role.");
+   console.log(gm.displayName + " joined the server! Gave them the starter role.");
    // add a new entry in users.json for the new member
    file.set("usercount", file.get("usercount") + 1);
    file.set(`user${file.get("usercount")}.id`, gm.id);
@@ -497,13 +497,49 @@ client.on('message', msg => {
             break;
          
          case "update" :
-            for (let i = 1; i <= file.get("usercount"); i++) {
-               if (file.get(`user${i}.id`) == msg.author.id) {
-                  file.set(`user${i}.nickname`, msg.member.displayName);
-                  break;
+            if (msg.mentions.members.size > 0) {
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == msg.mentions.members.first().id) {
+                     file.set(`user${i}.nickname`, msg.mentions.members.first().displayName);
+                     break;
+                  }
                }
+               msg.reply(embed.setDescription(`Updated **${msg.mentions.members.first().displayName}**'s information!`));
+            } else {
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == msg.author.id) {
+                     file.set(`user${i}.nickname`, msg.member.displayName);
+                     break;
+                  }
+               }
+               msg.reply(embed.setDescription("Updated your information!"));
             }
-            msg.reply(embed.setDescription("Updated your information!"));
+            
+            break;
+         case "give" :
+            if (msg.mentions.members.size < 1) msg.reply(embed.setDescription("You need to specify a user to give points to! \n*Syntax: !give <user> <amount>*"));
+            else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify an amount to give! \n*Syntax: !give <user> <amount>*"));
+            else if (msg.author.id == msg.mentions.members.first().user.id) msg.reply(embed.setDescription("Nice try :^)"));
+            else {
+               let amount = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == msg.author.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - amount);
+                  if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + amount);
+               }
+               msg.reply(embed.setDescription(`You gave ${msg.mentions.members.first().user} ${amount} points!`));
+            }
+            break;
+         
+         case "current" :
+            break;
+         case "help" :
+            msg.reply(embed.setTitle("**Commands**").setDescription("**!points** - displays your point balance\n \
+            **!points <@user>** - displays user's point balance\n \
+            **!top** - displays top 10 leaderboard\n \
+            **!give <@user> <amount>** - gives user amount of points from your balance\n \
+            **!challenge <@user> <amount>** - challenges user to a trivia duel, bet is amount\n \
+            **!communism** - displays total points in server, as well as total points ÷ total members\n \
+            **!update** - updates your nickname on the leaderboard"));
             break;
       }
    }
@@ -560,7 +596,7 @@ client.on("messageReactionAdd", (reaction, user) => {
    
    if (reaction.message.id == "541686063668658226") {
       
-      reaction.message.guild.members.get(user.id).removeRole(reaction.message.guild.roles.get("541665988186472459")); // give them the starter role
+      reaction.message.guild.members.get(user.id).removeRole(reaction.message.guild.roles.get("541665988186472459")); // remove the starter role
       reaction.message.guild.members.get(user.id).addRole(reaction.message.guild.roles.get("531140375591649292")); // give them the Memes role
       console.log(reaction.message.guild.members.get(user.id).displayName + "reacted in #rules and received the Memes role.");
       
@@ -568,7 +604,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 
       // Give points to memer if their meme was upvoted
       if (reaction.emoji == client.emojis.get("539597117921034241")) {
-         console.log(user + " upvoted message " + reaction.message.id);
+         console.log(user.username + " upvoted meme " + reaction.message.id);
          let authorid = reaction.message.author.id;
          for (let i = 1; i <= file.get("usercount"); i++) {
             if (reaction.message.author == user) break;
@@ -581,7 +617,7 @@ client.on("messageReactionAdd", (reaction, user) => {
 
       // Take points from memer if their meme was downvoted
       if (reaction.emoji == client.emojis.get("539597129489055754")) {
-         console.log(user + " downvoted message " + reaction.message.id);
+         console.log(user.username + " downvoted meme " + reaction.message.id);
          let authorid = reaction.message.author.id;
          for (let i = 1; i <= file.get("usercount"); i++) {
             if (reaction.message.author == user) break;
@@ -594,9 +630,42 @@ client.on("messageReactionAdd", (reaction, user) => {
    }
 });
 
+// If someone removes their meme reaction
+client.on("messageReactionRemove", (reaction, user) => {
+   
+   if (reaction.message.channel.id == "531170085482659851") {
+
+      // If you remove an upvote, take the given points away
+      if (reaction.emoji == client.emojis.get("539597117921034241")) {
+         console.log(user.username + " removed upvote from meme " + reaction.message.id);
+         let authorid = reaction.message.author.id;
+         for (let i = 1; i <= file.get("usercount"); i++) {
+            if (reaction.message.author == user) break;
+            if (file.get(`user${i}.id`) == authorid) {
+               file.set(`user${i}.points`, file.get(`user${i}.points`) - 30);
+               break;
+            }
+         }
+      }
+
+      // If you remove a downvote, give the removed points back
+      if (reaction.emoji == client.emojis.get("539597129489055754")) {
+         console.log(user.username + " removed downvote from meme " + reaction.message.id);
+         let authorid = reaction.message.author.id;
+         for (let i = 1; i <= file.get("usercount"); i++) {
+            if (reaction.message.author == user) break;
+            if (file.get(`user${i}.id`) == authorid) {
+               file.set(`user${i}.points`, file.get(`user${i}.points`) + 30);
+               break;
+            }
+         }
+      }
+   }
+});
+
 // login to the bot (auth.json is in .gitignore as the token is sensitive data)
 client.login(auth.token);
 
 var embed = new Discord.RichEmbed()
-   .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/c3c574b654c949b0ab99d92ae4287381.png?size=2048")
+   .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/97021c7d4a22128c924180655072666f.png?size=2048")
    .setColor(3447003);

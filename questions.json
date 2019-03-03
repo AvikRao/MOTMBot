@@ -1369,7 +1369,7 @@
          "category":"General Knowledge",
          "type":"multiple",
          "difficulty":"medium",
-         "question":"A factiod is what?",
+         "question":"A factoid is what?",
          "correct_answer":"A falsehood",
          "incorrect_answers":[  
             "Useless trivia",
