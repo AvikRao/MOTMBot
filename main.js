@@ -86,6 +86,7 @@ client.on('ready', () => {
    gameStarted = false;
    player1 = null; player2 = null; currentPlayer = null;
    question = null; answers = null;
+   //client.channels.get('504057505266270210').send("I have been reset.");
 });
 
 // When someone new joins the server
