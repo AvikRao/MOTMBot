@@ -533,6 +533,7 @@ client.on('message', msg => {
          
          case "current" :
             break;
+            
          case "help" :
             msg.reply(embed.setTitle("**Commands**").setDescription("**!points** - displays your point balance\n \
             **!points <@user>** - displays user's point balance\n \
@@ -541,6 +542,76 @@ client.on('message', msg => {
             **!challenge <@user> <amount>** - challenges user to a trivia duel, bet is amount\n \
             **!communism** - displays total points in server, as well as total points ÷ total members\n \
             **!update** - updates your nickname on the leaderboard"));
+            break;
+            
+         case "chicken" :
+            let userid = "";
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               if (file.get(`user${i}.id`) == msg.author.id) {
+                  userid = `user${i}`;
+               }
+            }
+            if (file.get(`${userid}.chicken`) == -1) msg.reply(embed.setDescription("You do not have a chicken! Buy one from the shop."));
+            else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify a bet for your chicken fight!"));
+            else if (parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/)) > file.get(`${userid}.points`)) msg.reply(embed.setDescription("You do not have enough points to make this bet!"));
+            else if (parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/)) < 50) msg.reply(embed.setDescription("Your bet must be at least 50 points."));
+            else {
+               let bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/));
+               let chance = (Math.random()  * 100) < file.get(`${userid}.chicken`);
+               msg.channel.send(embed.setDescription("3")).then((msg) => {
+                  setTimeout(function(msg){
+                     
+                     msg.edit(embed.setDescription("2"));
+                     
+                     setTimeout(function(msg){
+                        
+                        msg.edit(embed.setDescription("1"));
+                        
+                        setTimeout(function(msg){
+                           if (chance) {
+                              file.set(`${userid}.chicken`, file.get(`${userid}.chicken`) + 1);
+                              file.set(`${userid}.points`, file.get(`${userid}.points`) + bet);
+                              if (file.get(`${userid}.chicken`) == 70) msg.edit(embed.setTitle("Your chicken won!").setDescription(`You gained **${bet} points**! Your chicken has been maxed out. Purchase a new chicken to continue!`));
+                              else msg.edit(embed.setTitle("Your chicken won!").setDescription(`You gained **${bet} points** and your chicken grew stronger. It now has a **${file.get(`${userid}.chicken`)}% chance** of winning future fights.`));
+                           } else {
+                              file.set(`${userid}.chicken`, -1);
+                              file.set(`${userid}.points`, file.get(`${userid}.points`) - bet);
+                              msg.edit(embed.setTitle("Your chicken lost").setDescription(`You lost **${bet} points** and your chicken died.`));
+                           }
+                        }, 1000, msg);
+                        
+                     }, 1000, msg);
+                     
+                  }, 1000, msg);
+               
+               })
+            }
+            break;
+            
+         case "buy" :
+            let authorid = "";
+            for (let i = 1; i <= file.get("usercount"); i++) {
+               if (file.get(`user${i}.id`) == msg.author.id) {
+                  authorid = `user${i}`;
+               }
+            }
+            switch (msg.content.substring(firstspace).trim()) {
+               case "chicken" : // fallthrough
+               case "Chicken" : 
+                  const COST = 50;
+                  if (file.get(`${authorid}.points`) < COST) msg.reply(embed.setDescription("You do not have enough points to purchase a chicken!"));
+                  else if (file.get(`${authorid}.chicken`) != -1) msg.reply(embed.setDescription("You already own a chicken!"));
+                  else {
+                     file.set(`${authorid}.points`, file.get(`${authorid}.points`) - 50);
+                     file.set(`${authorid}.chicken`, 50);
+                     msg.reply(embed.setDescription("You bought **1 chicken** for 50 points!"));
+                  }
+                  break;
+            }
+            break;
+            
+         case "shop" :
+            msg.reply(embed.setTitle("Shop").setDescription("**Chicken** - 50"));
             break;
       }
    }
@@ -554,9 +625,11 @@ client.on('message', msg => {
          client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
       } else {
          msg.react(client.emojis.get("539597117921034241"))
-            .then(sleep(5000))
-            .then(msg.react(client.emojis.get("539597129489055754")))
-            .then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
+            .then((reaction) => {
+               setTimeout(function(reaction) {
+                  reaction.message.react(client.emojis.get("539597129489055754"));
+               }, 1000, reaction);
+            }).then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
             .catch(console.error);
          
       }

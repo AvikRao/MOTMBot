@@ -10,3 +10,5 @@ info.json
 # Ignore audio files
 *.mp3 
 
+# Ignore scripts
+scripts/
