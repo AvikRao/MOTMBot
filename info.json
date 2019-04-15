@@ -18,14 +18,14 @@
   "user3": {
     "id": "168819018906599433",
     "nickname": "Xinon",
-    "points": 0,
+    "points": 46,
     "challenged": false,
     "chicken": -1
   },
   "user4": {
     "id": "204687285936062464",
     "nickname": "Coolerblast",
-    "points": 0,
+    "points": 9,
     "challenged": false,
     "chicken": -1
   },
@@ -39,16 +39,16 @@
   "user6": {
     "id": "229389449254010881",
     "nickname": "cow go moo",
-    "points": 0,
+    "points": 20,
     "challenged": false,
     "chicken": -1
   },
   "user7": {
     "id": "229711809865711616",
     "nickname": "Romelete",
-    "points": 0,
+    "points": 70,
     "challenged": false,
-    "chicken": -1
+    "chicken": 50
   },
   "user8": {
     "id": "230170287428206592",
@@ -60,14 +60,14 @@
   "user9": {
     "id": "237350157019119616",
     "nickname": "So lar.",
-    "points": 0,
+    "points": -30,
     "challenged": false,
     "chicken": -1
   },
   "user10": {
     "id": "249992970235936768",
     "nickname": "Chicken Emperor",
-    "points": 0,
+    "points": 173,
     "challenged": false,
     "chicken": 51
   },
@@ -95,7 +95,7 @@
   "user14": {
     "id": "285042133721677824",
     "nickname": "catto",
-    "points": 0,
+    "points": 11,
     "challenged": false,
     "chicken": -1
   },
@@ -109,14 +109,14 @@
   "user16": {
     "id": "297845177341706252",
     "nickname": "Duck",
-    "points": 0,
+    "points": 30,
     "challenged": false,
     "chicken": -1
   },
   "user17": {
     "id": "313633905402183680",
     "nickname": ">You",
-    "points": 0,
+    "points": 4,
     "challenged": false,
     "chicken": -1
   },
@@ -158,14 +158,14 @@
   "user23": {
     "id": "279752331166482432",
     "nickname": "Jake",
-    "points": 0,
+    "points": 121,
     "challenged": false,
     "chicken": -1
   },
   "user24": {
     "id": "403676686794752015",
     "nickname": "Sylok The Defiled",
-    "points": 0,
+    "points": 93,
     "challenged": false,
     "chicken": -1
   },
@@ -186,7 +186,7 @@
   "user27": {
     "id": "166712757717172225",
     "nickname": "Chicken Peasant",
-    "points": 0,
+    "points": 17,
     "challenged": false,
     "chicken": 51
   },
@@ -221,7 +221,7 @@
   "user32": {
     "id": "311677799888846848",
     "nickname": "rawr",
-    "points": 0,
+    "points": 163,
     "challenged": false,
     "chicken": -1
   },
@@ -249,7 +249,7 @@
   "user36": {
     "id": "311707564855263234",
     "nickname": "[𝓐𝓼𝓱𝓵𝒆𝔂]",
-    "points": 0,
+    "points": 60,
     "challenged": false,
     "chicken": -1
   },
