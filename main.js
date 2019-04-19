@@ -626,11 +626,10 @@ client.on('message', msg => {
       } else {
          msg.react(client.emojis.get("539597117921034241"))
             .then((reaction) => {
-               setTimeout(function(reaction) {
-                  reaction.message.react(client.emojis.get("539597129489055754"));
-               }, 1000, reaction);
-            }).then(console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`))
-            .catch(console.error);
+               setTimeout(function() {}, 1000);
+            });
+	 console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`);
+         msg.react(client.emojis.get("539597129489055754"));
          
       }
    }
