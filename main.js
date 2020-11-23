@@ -19,7 +19,7 @@ stdin.addListener("data", function(d) {
    console.log("you entered: [" + 
      d.toString().trim() + "]");
      
-   client.channels.get('504057505266270210').send(d.toString().trim());
+   client.channels.get('759262285981417492').send(d.toString().trim());
    
 });   
 
@@ -61,7 +61,7 @@ function challengereset () {
 
 function qexpired (questionNumber) {
    if (!(questionNumber == current)) {
-      client.channels.get("536596792826003486").send(embed.setDescription(`${currentPlayer}, time has expired. Your answer has automatically been marked as incorrect.`));
+      client.channels.cache.get("759262285981417492").send(embed.setDescription(`${currentPlayer}, time has expired. Your answer has automatically been marked as incorrect.`));
       if (currentPlayer == player1) {
          
       }
@@ -71,7 +71,7 @@ function qexpired (questionNumber) {
 // Reset embed fields
 function embedReset () {
    embed = new Discord.RichEmbed()
-      .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/97021c7d4a22128c924180655072666f.png?size=2048")
+      .setAuthor("MOTMBot", "https://i.kym-cdn.com/photos/images/newsfeed/001/734/410/676.jpg")
       .setColor(3447003);
 }
 
@@ -86,21 +86,21 @@ client.on('ready', () => {
    gameStarted = false;
    player1 = null; player2 = null; currentPlayer = null;
    question = null; answers = null;
-   //client.channels.get('504057505266270210').send("I have been reset.");
+   //client.channels.cache.get('504057505266270210').send("I have been reset.");
 });
 
-// When someone new joins the server
-client.on('guildMemberAdd', gm => {
-   gm.addRole(gm.guild.roles.get("541665988186472459")); // give them the starter role
-   console.log(gm.displayName + " joined the server! Gave them the starter role.");
-   // add a new entry in users.json for the new member
-   file.set("usercount", file.get("usercount") + 1);
-   file.set(`user${file.get("usercount")}.id`, gm.id);
-   file.set(`user${file.get("usercount")}.nickname`, gm.displayName);
-   file.set(`user${file.get("usercount")}.points`, 0);
-   // send a welcome message
-   client.channels.get('504057505266270210').send(`Hey ${gm.user}, welcome to **${gm.guild.name}**! Please visit <#531144896476610582> to set your roles and check out <#531141470883807252> for info about the server.`);
-});
+// // When someone new joins the server
+// client.on('guildMemberAdd', gm => {
+//    gm.addRole(gm.guild.roles.get("541665988186472459")); // give them the starter role
+//    console.log(gm.displayName + " joined the server! Gave them the starter role.");
+//    // add a new entry in users.json for the new member
+//    file.set("usercount", file.get("usercount") + 1);
+//    file.set(`user${file.get("usercount")}.id`, gm.id);
+//    file.set(`user${file.get("usercount")}.nickname`, gm.displayName);
+//    file.set(`user${file.get("usercount")}.points`, 0);
+//    // send a welcome message
+//    client.channels.cache.get('759262285981417492').send(`Hey ${gm.user}, welcome to **${gm.guild.name}**! Please visit <#531144896476610582> to set your roles and check out <#531141470883807252> for info about the server.`);
+// });
 
 // When someone sends a message
 client.on('message', msg => {
@@ -115,6 +115,10 @@ client.on('message', msg => {
          }
       }
    }
+
+   if (msg.author.bot) {
+      return;
+   }
    
    // If the message is a command
    if (msg.content.substring(0, file.get("prefix").length) == file.get("prefix")) {
@@ -128,7 +132,9 @@ client.on('message', msg => {
          
          case "points" :
             // If someone wants to know someone else's points
+            console.log(msg.member.id);
             if (msg.mentions.members.size > 0) {
+               console.log(msg.mentions.members.first().user.id);
                for (let i = 1; i <= file.get("usercount"); i++) {
                   if (file.get(`user${i}.id`) == msg.mentions.members.first().id) {
                      msg.reply(`${msg.mentions.members.first().user.username} has ${file.get(`user${i}.points`)} points!`);
@@ -229,9 +235,9 @@ client.on('message', msg => {
             else if (msg.mentions.members.size == 0) msg.reply(embed.setDescription("You need to challenge someone! \n*Syntax: !challenge <user> <bet>*"));
             else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify a bet for the challenge! \n*Syntax: !challenge <user> <bet>*"));
             else if (msg.mentions.members.first() == msg.member) msg.reply(embed.setDescription("You cannot challenge yourself!"));
-            else if (msg.mentions.members.first().presence.status != "online") { 
-               msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
-            } else {
+            // else if (msg.mentions.members.first().presence.status != "online") { 
+            //    msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
+            else {
                // The challenge is valid, send the invitation and set up variables
                bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                let greater1 = false;
@@ -518,14 +524,31 @@ client.on('message', msg => {
             
             break;
          case "give" :
+            let amount = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
+            let failed = false;
             if (msg.mentions.members.size < 1) msg.reply(embed.setDescription("You need to specify a user to give points to! \n*Syntax: !give <user> <amount>*"));
             else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify an amount to give! \n*Syntax: !give <user> <amount>*"));
             else if (msg.author.id == msg.mentions.members.first().user.id) msg.reply(embed.setDescription("Nice try :^)"));
             else {
-               let amount = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                for (let i = 1; i <= file.get("usercount"); i++) {
-                  if (file.get(`user${i}.id`) == msg.author.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - amount);
-                  if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + amount);
+                  if (file.get(`user${i}.id`) == msg.author.id) {
+                     if (amount > file.get(`user${i}.points`)) {
+                        msg.reply(embed.setDescription("Not enough points to give!"))
+                        failed = true;
+                        break;
+                     }
+                     file.set(`user${i}.points`, file.get(`user${i}.points`) - amount);
+                  }
+               }
+
+               if (failed) {
+                  break;
+               }
+
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id) {
+                     file.set(`user${i}.points`, file.get(`user${i}.points`) + amount);
+                  }
                }
                msg.reply(embed.setDescription(`You gave ${msg.mentions.members.first().user} ${amount} points!`));
             }
@@ -616,53 +639,53 @@ client.on('message', msg => {
       }
    }
    
-   // If they send a message in voting channel, delete it if it's not a valid meme, add votes if it is
-   else if ( msg.channel.id == "531170085482659851" ) {
-      if ( !(msg.content.includes("http://") || msg.content.includes("https://") || msg.attachments.size > 0) ) {
-         msg.delete()
-            .then(msg => console.log(`Deleted message from ${msg.author.username}: "${msg.content}"`))
-            .catch(console.error);
-         client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
-      } else {
-         msg.react(client.emojis.get("539597117921034241"))
-            .then((reaction) => {
-               setTimeout(function() {}, 1000);
-            });
-	 console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`);
-         msg.react(client.emojis.get("539597129489055754"));
+   // // If they send a message in voting channel, delete it if it's not a valid meme, add votes if it is
+   // else if ( msg.channel.id == "531170085482659851" ) {
+   //    if ( !(msg.content.includes("http://") || msg.content.includes("https://") || msg.attachments.size > 0) ) {
+   //       msg.delete()
+   //          .then(msg => console.log(`Deleted message from ${msg.author.username}: "${msg.content}"`))
+   //          .catch(console.error);
+   //       client.channels.cache.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#759262285981417492>!`);
+   //    } else {
+   //       msg.react(client.emojis.get("539597117921034241"))
+   //          .then((reaction) => {
+   //             setTimeout(function() {}, 1000);
+   //          });
+	//  console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`);
+   //       msg.react(client.emojis.get("539597129489055754"));
          
-      }
-   }
+   //    }
+   // }
 });
 
-// Check if a reacted message is cached and add it to cached if not (applies to old memes + rules page)
-client.on('raw', packet => {
+// // Check if a reacted message is cached and add it to cached if not (applies to old memes + rules page)
+// client.on('raw', packet => {
    
-    // Ignore all events that aren't message reactions
-    if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
+//     // Ignore all events that aren't message reactions
+//     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
     
-    // Grab the channel to check the message from
-    const channel = client.channels.get(packet.d.channel_id);
-    // There's no need to emit if the message is cached, because the event will fire anyway for that
-    if (channel.messages.has(packet.d.message_id)) return;
+//     // Grab the channel to check the message from
+//     const channel = client.channels.cache.get(packet.d.channel_id);
+//     // There's no need to emit if the message is cached, because the event will fire anyway for that
+//     if (channel.messages.has(packet.d.message_id)) return;
     
-    // Since we have confirmed the message is not cached, let's fetch it
-    channel.fetchMessage(packet.d.message_id).then(message => {
+//     // Since we have confirmed the message is not cached, let's fetch it
+//     channel.fetchMessage(packet.d.message_id).then(message => {
        
-        const emoji = packet.d.emoji.id ? `${packet.d.emoji.name}:${packet.d.emoji.id}` : packet.d.emoji.name;
-        const reaction = message.reactions.get(emoji);
-        if (reaction) reaction.users.set(packet.d.user_id, client.users.get(packet.d.user_id));
+//         const emoji = packet.d.emoji.id ? `${packet.d.emoji.name}:${packet.d.emoji.id}` : packet.d.emoji.name;
+//         const reaction = message.reactions.get(emoji);
+//         if (reaction) reaction.users.set(packet.d.user_id, client.users.get(packet.d.user_id));
         
-        // Check which type of event it is before emitting
-        if (packet.t === 'MESSAGE_REACTION_ADD') {
-            client.emit('messageReactionAdd', reaction, client.users.get(packet.d.user_id));
-        }
-        if (packet.t === 'MESSAGE_REACTION_REMOVE') {
-            client.emit('messageReactionRemove', reaction, client.users.get(packet.d.user_id));
-        }
+//         // Check which type of event it is before emitting
+//         if (packet.t === 'MESSAGE_REACTION_ADD') {
+//             client.emit('messageReactionAdd', reaction, client.users.get(packet.d.user_id));
+//         }
+//         if (packet.t === 'MESSAGE_REACTION_REMOVE') {
+//             client.emit('messageReactionRemove', reaction, client.users.get(packet.d.user_id));
+//         }
         
-    });
-});
+//     });
+// });
 
 // If someone reacts to a meme
 client.on("messageReactionAdd", (reaction, user) => {
