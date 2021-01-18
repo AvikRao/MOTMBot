@@ -2,10 +2,26 @@ const editJsonFile = require("edit-json-file");
 const auth = require("./auth.json");
 const trivia = require("./questions.json");
 const Discord = require('discord.js');
+var schedule = require('node-schedule');
+//const { Chess } = require('chess.js');
+
+//var stockfish = require("stockfish");
+//var engine;
+
 const client = new Discord.Client();
 var player1 = null; var player2 = null; var currentPlayer = null; var bet = 0;
 var challengeAccepted = false; var declined = false; var gameStarted = false; var reset = false;
 var question = null; var answers = []; var corrects1 = null; var corrects2 = null; var current = 0;
+
+const ELEVATOR_FLOOR_CHANNEL = "757369822920179714";
+const ELEVATOR_CHANNEL = "779138826160832512";
+const BOT_CHANNEL = "759262285981417492";
+const REMIND_CHANNEL = "759120030524112957";
+
+// global variables
+var game;
+var currentPlayer;
+
 
 // open JSON file for member properties
 let file = editJsonFile(`${__dirname}/info.json`, {
@@ -19,7 +35,7 @@ stdin.addListener("data", function(d) {
    console.log("you entered: [" + 
      d.toString().trim() + "]");
      
-   client.channels.get('504057505266270210').send(d.toString().trim());
+   client.channels.get('759262285981417492').send(d.toString().trim());
    
 });   
 
@@ -27,6 +43,15 @@ stdin.addListener("data", function(d) {
 function sleep (time) {
    return new Promise((resolve) => setTimeout(resolve, time));
 }
+
+function resetChess() {
+   game.reset();
+   game = null;
+   currentPlayer = null;
+   engine.postMessage("quit");
+   engine = null;
+}
+
 
 // Shuffle the answer choices in a challenge
 function shuffle (array) {
@@ -59,19 +84,10 @@ function challengereset () {
    declined = false;
 }
 
-function qexpired (questionNumber) {
-   if (!(questionNumber == current)) {
-      client.channels.get("536596792826003486").send(embed.setDescription(`${currentPlayer}, time has expired. Your answer has automatically been marked as incorrect.`));
-      if (currentPlayer == player1) {
-         
-      }
-   }
-}
-
 // Reset embed fields
 function embedReset () {
    embed = new Discord.RichEmbed()
-      .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/97021c7d4a22128c924180655072666f.png?size=2048")
+      .setAuthor("MOTMBot", "https://images-ext-2.discordapp.net/external/W48UjJkcThQsD8KPJ8_4rNlkh6-9AXHM_HwYvSf5olQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/532192754550308865/d2657e765b86629179f7a101a2d835b8.png?width=677&height=677")
       .setColor(3447003);
 }
 
@@ -86,20 +102,10 @@ client.on('ready', () => {
    gameStarted = false;
    player1 = null; player2 = null; currentPlayer = null;
    question = null; answers = null;
-   //client.channels.get('504057505266270210').send("I have been reset.");
-});
 
-// When someone new joins the server
-client.on('guildMemberAdd', gm => {
-   gm.addRole(gm.guild.roles.get("541665988186472459")); // give them the starter role
-   console.log(gm.displayName + " joined the server! Gave them the starter role.");
-   // add a new entry in users.json for the new member
-   file.set("usercount", file.get("usercount") + 1);
-   file.set(`user${file.get("usercount")}.id`, gm.id);
-   file.set(`user${file.get("usercount")}.nickname`, gm.displayName);
-   file.set(`user${file.get("usercount")}.points`, 0);
-   // send a welcome message
-   client.channels.get('504057505266270210').send(`Hey ${gm.user}, welcome to **${gm.guild.name}**! Please visit <#531144896476610582> to set your roles and check out <#531141470883807252> for info about the server.`);
+   var reminder = schedule.scheduleJob('30 9 * * 1', function() {
+      client.channels.get(REMIND_CHANNEL).send("@everyone Remember to fill out Monday attendance before 4:00 PM this afternoon: https://tinyurl.com/monday-check-in-2020");
+   });
 });
 
 // When someone sends a message
@@ -115,6 +121,15 @@ client.on('message', msg => {
          }
       }
    }
+
+   if (msg.author.bot) {
+      return;
+   }
+
+   let mcheck = msg.content.split(" ");
+   if (mcheck.includes("m") && !["308756179109281792", "472389625705660416"].includes(msg.author.id)) {
+      msg.react(msg.guild.emojis.get("800821317796102210"));
+   }
    
    // If the message is a command
    if (msg.content.substring(0, file.get("prefix").length) == file.get("prefix")) {
@@ -122,13 +137,16 @@ client.on('message', msg => {
       // check for arguments
       let firstspace = msg.content.indexOf(" ");
       let truefirstspace = firstspace;
+      let args;
       if (firstspace == -1) firstspace = msg.content.length;
       console.log(firstspace);
       switch (msg.content.substring(file.get("prefix").length, firstspace)) {
          
          case "points" :
             // If someone wants to know someone else's points
+            console.log(msg.member.id);
             if (msg.mentions.members.size > 0) {
+               console.log(msg.mentions.members.first().user.id);
                for (let i = 1; i <= file.get("usercount"); i++) {
                   if (file.get(`user${i}.id`) == msg.mentions.members.first().id) {
                      msg.reply(`${msg.mentions.members.first().user.username} has ${file.get(`user${i}.points`)} points!`);
@@ -229,9 +247,9 @@ client.on('message', msg => {
             else if (msg.mentions.members.size == 0) msg.reply(embed.setDescription("You need to challenge someone! \n*Syntax: !challenge <user> <bet>*"));
             else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify a bet for the challenge! \n*Syntax: !challenge <user> <bet>*"));
             else if (msg.mentions.members.first() == msg.member) msg.reply(embed.setDescription("You cannot challenge yourself!"));
-            else if (msg.mentions.members.first().presence.status != "online") { 
-               msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
-            } else {
+            // else if (msg.mentions.members.first().presence.status != "online") { 
+            //    msg.reply(`${msg.mentions.members.first()} is currently **${msg.mentions.members.first().presence.status}**. Please try contacting them when they're **online**!`);
+            else {
                // The challenge is valid, send the invitation and set up variables
                bet = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                let greater1 = false;
@@ -518,14 +536,31 @@ client.on('message', msg => {
             
             break;
          case "give" :
+            let amount = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
+            let failed = false;
             if (msg.mentions.members.size < 1) msg.reply(embed.setDescription("You need to specify a user to give points to! \n*Syntax: !give <user> <amount>*"));
             else if (msg.content.substring(msg.content.indexOf(">")).match(/\d+/) == null) msg.reply(embed.setDescription("You need to specify an amount to give! \n*Syntax: !give <user> <amount>*"));
             else if (msg.author.id == msg.mentions.members.first().user.id) msg.reply(embed.setDescription("Nice try :^)"));
             else {
-               let amount = parseInt(msg.content.substring(msg.content.indexOf(">")).match(/\d+/).shift());
                for (let i = 1; i <= file.get("usercount"); i++) {
-                  if (file.get(`user${i}.id`) == msg.author.id) file.set(`user${i}.points`, file.get(`user${i}.points`) - amount);
-                  if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id) file.set(`user${i}.points`, file.get(`user${i}.points`) + amount);
+                  if (file.get(`user${i}.id`) == msg.author.id) {
+                     if (amount > file.get(`user${i}.points`)) {
+                        msg.reply(embed.setDescription("Not enough points to give!"))
+                        failed = true;
+                        break;
+                     }
+                     file.set(`user${i}.points`, file.get(`user${i}.points`) - amount);
+                  }
+               }
+
+               if (failed) {
+                  break;
+               }
+
+               for (let i = 1; i <= file.get("usercount"); i++) {
+                  if (file.get(`user${i}.id`) == msg.mentions.members.first().user.id) {
+                     file.set(`user${i}.points`, file.get(`user${i}.points`) + amount);
+                  }
                }
                msg.reply(embed.setDescription(`You gave ${msg.mentions.members.first().user} ${amount} points!`));
             }
@@ -540,7 +575,7 @@ client.on('message', msg => {
             **!top** - displays top 10 leaderboard\n \
             **!give <@user> <amount>** - gives user amount of points from your balance\n \
             **!challenge <@user> <amount>** - challenges user to a trivia duel, bet is amount\n \
-            **!communism** - displays total points in server, as well as total points ÷ total members\n \
+            **!communism** - displays total points in server, as well as total points  total members\n \
             **!update** - updates your nickname on the leaderboard"));
             break;
             
@@ -613,132 +648,228 @@ client.on('message', msg => {
          case "shop" :
             msg.reply(embed.setTitle("Shop").setDescription("**Chicken** - 50"));
             break;
-      }
-   }
-   
-   // If they send a message in voting channel, delete it if it's not a valid meme, add votes if it is
-   else if ( msg.channel.id == "531170085482659851" ) {
-      if ( !(msg.content.includes("http://") || msg.content.includes("https://") || msg.attachments.size > 0) ) {
-         msg.delete()
-            .then(msg => console.log(`Deleted message from ${msg.author.username}: "${msg.content}"`))
-            .catch(console.error);
-         client.channels.get('504057505266270210').send(`${msg.author}, you can only send links and attachments in <#531170085482659851>!`);
-      } else {
-         msg.react(client.emojis.get("539597117921034241"))
-            .then((reaction) => {
-               setTimeout(function() {}, 1000);
-            });
-	 console.log(`Reacted to valid meme ${msg.id} from ${msg.author.username}`);
-         msg.react(client.emojis.get("539597129489055754"));
+
+         case "elevator" :
+
+            let main = msg;
+
+            if (main.member.voiceChannelID == ELEVATOR_FLOOR_CHANNEL) {
+               main.reply(embed.setDescription("The elevator doors have shut. Please wait patiently: 5")).then((msg) => {
+                  setTimeout(function (msg) {
+
+                     msg.edit(embed.setDescription("The elevator doors have shut. Please wait patiently: 4"));
+
+                     setTimeout(function (msg) {
+
+                        msg.edit(embed.setDescription("The elevator doors have shut. Please wait patiently: 3"));
+
+                        setTimeout(function (msg) {
+
+                           msg.edit(embed.setDescription("The elevator doors have shut. Please wait patiently: 2"));
+
+                           setTimeout(function (msg) {
+
+                              msg.edit(embed.setDescription("The elevator doors have shut. Please wait patiently: 1"));
+
+                              setTimeout(function (msg) {
+
+                                 console.log(main.member.voiceChannelID);
+
+                                main.member.setVoiceChannel(ELEVATOR_CHANNEL)
+                                    .then(() => console.log(`Moved ${main.member.displayName}`))
+                                    .catch(console.error);
+
+                                 msg.edit(embed.setDescription("You have arrived at the top floor! Enjoy your stay."));
+
+                              }, 1000, msg)
+
+                           }, 1000, msg)
+
+                        }, 1000, msg)
+
+                     }, 1000, msg);
+
+                  }, 1000, msg);
+
+               })
+            } else {
+               msg.reply(embed.setDescription("You're not on the ground floor!"));
+            }
+            break;
+        /* case "chess" :
+
+            args = msg.content.substring(7).split(" ");
+
+            console.log(args);
+
+            if (args.length < 2) {
+
+               msg.reply(
+                  embed.setTitle("Missing Arguments")
+                     .addField("Syntax", "!chess [difficulty] [color]")
+                     .addField("Difficulty", "Value between 0 (Easiest) and 20 (Hardest)")
+                     .addField("Color", "White | Black | Random")
+               );
+               return;
+
+            } else if (isNaN(parseInt(args[0])) || parseInt(args[0]) > 20 || parseInt(args[0]) < 0 || !['white', 'black', 'random'].includes(args[1].toString().toLowerCase())) {
+
+               msg.reply(
+                  embed.setTitle("Invalid Arguments")
+                     .addField("Syntax", "!chess [difficulty] [color]")
+                     .addField("Difficulty", "Value between 0 (Easiest) and 20 (Hardest)")
+                     .addField("Color", "White | Black | Random")
+               );
+               return;
+
+            }
+
+            game = new Chess();
+            currentPlayer = msg.author;
+
+            engine = stockfish();
+
+            engine.onmessage = function onmessage(event) {
+
+               console.log(event);
+               console.log(typeof event)
+
+               if (typeof event == 'string' && event.toString().indexOf("bestmove") > -1) {
+                  let line = event.split(" ");
+                  let bestmove = line[line.indexOf("bestmove") + 1];
+                  game.move(bestmove, { sloppy: true });
+
+                  let algebraic = game.history()[game.history().length - 1].toString();
+                  let fen = game.fen();
+                  let lastmove = game.history({ verbose: true })[game.history().length - 1].from + game.history({ verbose: true })[game.history().length - 1].to;
+
+                  let pnglink = `https://backscattering.de/web-boardimage/board.png?fen=${encodeURIComponent(fen)}&lastMove=${encodeURIComponent(lastmove)}`;
+
+
+                  console.log(algebraic);
+
+                  if (game.in_draw()) {
+
+                     let drawMethod;
+                     if (game.in_stalemate()) drawMethod = "stalemate";
+                     else if (game.in_threefold_repetition()) drawMethod = "threefold repetition";
+                     if (game.insufficient_material()) drawMethod = "insufficient material";
+
+                     resetGame();
+                     client.channels.get(BOT_CHANNEL).send(algebraic + `. **Draw** by ${drawMethod}.`, { reply: currentPlayer, embed: embed.setDescription(algebraic + `. **Draw** by ${drawMethod}.`).setImage(pnglink) });
+
+                  } else if (game.in_checkmate()) {
+
+                     resetGame();
+                     client.channels.get(BOT_CHANNEL).send(algebraic + ". **Checkmate!**", { reply: currentPlayer, embed: embed.setDescription(algebraic + ". **Checkmate!**").setImage(pnglink) });
+
+                  } else if (game.in_check()) {
+
+                     let files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+                     let ranks = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
+                     let checksquare;
+
+                     for (let file = 0; file++; file < 8) {
+                        for (let rank = 0; rank++; rank < 8) {
+                           if (game.get(files[file] + ranks[rank]).type == 'k' && game.get(files[file] + ranks[rank]).color == game.turn()) {
+                              checksquare = files[file] + ranks[rank];
+                              break;
+                           }
+                        }
+                     }
+
+                     pnglink += `&check=${encodeURIComponent(checksquare)}`;
+
+                     client.channels.get(BOT_CHANNEL).send(algebraic + ". Check!", { reply: currentPlayer, embed: embed.setDescription(algebraic + ". Check!").setImage(pnglink) });
+
+                  } else {
+
+                     client.channels.get(BOT_CHANNEL).send(algebraic, { reply: currentPlayer, embed: embed.setDescription(algebraic).setImage(pnglink) });
+
+                  }
+
+               }
+            }
+
+            engine.postMessage("isready");
+            engine.postMessage("setoption name threads value 3");
+            engine.postMessage("setoption name hash value 1024");
+            engine.postMessage("setoption name ponder value false");
+            engine.postMessage(`setoption name skill level value ${args[0]}`);
+            engine.postMessage("position startpos");
+
+            let color = args[1].toLowerCase();
+
+            if (color == 'random') {
+               color = ['white', 'black'][Math.floor(Math.random() * 2)];
+            }
+
+            if (color == "white") {
+
+               game.header('White', currentPlayer.username, 'Black', 'RL Chess Bot (StockFish 11)');
+
+            } else if (color == "black") {
+
+               game.header('White', 'RL Chess Bot (StockFish 11)', 'Black', currentPlayer.username);
+               engine.postMessage("go depth 13");
+            }
+
+            msg.reply("New game started!");
+            break;
          
+         case "move" :
+
+            args = msg.content.substring(6).split(" ");
+            if (msg.author != currentPlayer) {
+               msg.reply(embed.setDescription("Either you aren't in a game, or it's not your turn to move."));
+               break;
+            }
+
+            if (args.length < 1) {
+               msg.reply("You need to choose a move!");
+               return;
+            }
+
+            let move = args[0];
+            if (!game.moves().includes(move)) {
+               msg.reply("That move is either invalid or illegal.");
+               return;
+            }
+
+            game.move(move, { sloppy: true });
+
+            if (game.in_draw()) {
+
+               let drawMethod;
+               if (game.in_stalemate()) drawMethod = "stalemate";
+               else if (game.in_threefold_repetition()) drawMethod = "threefold repetition";
+               if (game.insufficient_material()) drawMethod = "insufficient material";
+
+               resetGame();
+               client.channels.cache.get(TESTING).send(`**Draw** by ${drawMethod}.`, { reply: currentPlayer });
+
+            } else if (game.in_checkmate()) {
+
+               resetGame();
+               client.channels.cache.get(TESTING).send("**Checkmate!** You win. ", { reply: currentPlayer });
+
+            } else {
+
+               engine.postMessage(`position fen ${game.fen()}`);
+               engine.postMessage("go depth 13");
+
+            }
+	*/
       }
    }
-});
-
-// Check if a reacted message is cached and add it to cached if not (applies to old memes + rules page)
-client.on('raw', packet => {
    
-    // Ignore all events that aren't message reactions
-    if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
-    
-    // Grab the channel to check the message from
-    const channel = client.channels.get(packet.d.channel_id);
-    // There's no need to emit if the message is cached, because the event will fire anyway for that
-    if (channel.messages.has(packet.d.message_id)) return;
-    
-    // Since we have confirmed the message is not cached, let's fetch it
-    channel.fetchMessage(packet.d.message_id).then(message => {
-       
-        const emoji = packet.d.emoji.id ? `${packet.d.emoji.name}:${packet.d.emoji.id}` : packet.d.emoji.name;
-        const reaction = message.reactions.get(emoji);
-        if (reaction) reaction.users.set(packet.d.user_id, client.users.get(packet.d.user_id));
-        
-        // Check which type of event it is before emitting
-        if (packet.t === 'MESSAGE_REACTION_ADD') {
-            client.emit('messageReactionAdd', reaction, client.users.get(packet.d.user_id));
-        }
-        if (packet.t === 'MESSAGE_REACTION_REMOVE') {
-            client.emit('messageReactionRemove', reaction, client.users.get(packet.d.user_id));
-        }
-        
-    });
-});
-
-// If someone reacts to a meme
-client.on("messageReactionAdd", (reaction, user) => {
-   
-   if (reaction.message.id == "541686063668658226") {
-      
-      reaction.message.guild.members.get(user.id).removeRole(reaction.message.guild.roles.get("541665988186472459")); // remove the starter role
-      reaction.message.guild.members.get(user.id).addRole(reaction.message.guild.roles.get("531140375591649292")); // give them the Memes role
-      console.log(reaction.message.guild.members.get(user.id).displayName + "reacted in #rules and received the Memes role.");
-      
-   } else if (reaction.message.channel.id == "531170085482659851") {
-
-      // Give points to memer if their meme was upvoted
-      if (reaction.emoji == client.emojis.get("539597117921034241")) {
-         console.log(user.username + " upvoted meme " + reaction.message.id);
-         let authorid = reaction.message.author.id;
-         for (let i = 1; i <= file.get("usercount"); i++) {
-            if (reaction.message.author == user) break;
-            if (file.get(`user${i}.id`) == authorid) {
-               file.set(`user${i}.points`, file.get(`user${i}.points`) + 30);
-               break;
-            }
-         }
-      }
-
-      // Take points from memer if their meme was downvoted
-      if (reaction.emoji == client.emojis.get("539597129489055754")) {
-         console.log(user.username + " downvoted meme " + reaction.message.id);
-         let authorid = reaction.message.author.id;
-         for (let i = 1; i <= file.get("usercount"); i++) {
-            if (reaction.message.author == user) break;
-            if (file.get(`user${i}.id`) == authorid) {
-               file.set(`user${i}.points`, file.get(`user${i}.points`) - 30);
-               break;
-            }
-         }
-      }
-   }
-});
-
-// If someone removes their meme reaction
-client.on("messageReactionRemove", (reaction, user) => {
-   
-   if (reaction.message.channel.id == "531170085482659851") {
-
-      // If you remove an upvote, take the given points away
-      if (reaction.emoji == client.emojis.get("539597117921034241")) {
-         console.log(user.username + " removed upvote from meme " + reaction.message.id);
-         let authorid = reaction.message.author.id;
-         for (let i = 1; i <= file.get("usercount"); i++) {
-            if (reaction.message.author == user) break;
-            if (file.get(`user${i}.id`) == authorid) {
-               file.set(`user${i}.points`, file.get(`user${i}.points`) - 30);
-               break;
-            }
-         }
-      }
-
-      // If you remove a downvote, give the removed points back
-      if (reaction.emoji == client.emojis.get("539597129489055754")) {
-         console.log(user.username + " removed downvote from meme " + reaction.message.id);
-         let authorid = reaction.message.author.id;
-         for (let i = 1; i <= file.get("usercount"); i++) {
-            if (reaction.message.author == user) break;
-            if (file.get(`user${i}.id`) == authorid) {
-               file.set(`user${i}.points`, file.get(`user${i}.points`) + 30);
-               break;
-            }
-         }
-      }
-   }
 });
 
 // login to the bot (auth.json is in .gitignore as the token is sensitive data)
 client.login(auth.token);
 
 var embed = new Discord.RichEmbed()
-   .setAuthor("MOTMBot", "https://cdn.discordapp.com/avatars/532192754550308865/97021c7d4a22128c924180655072666f.png?size=2048")
+   .setAuthor("MOTMBot", "https://images-ext-2.discordapp.net/external/W48UjJkcThQsD8KPJ8_4rNlkh6-9AXHM_HwYvSf5olQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/532192754550308865/d2657e765b86629179f7a101a2d835b8.png?width=677&height=677")
    .setColor(3447003);
+
