@@ -126,7 +126,7 @@ client.on('message', msg => {
       return;
    }
 
-   let mcheck = msg.content.split(" ");
+   let mcheck = msg.content.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, "").split(" ");
    if (mcheck.includes("m") && !["308756179109281792", "472389625705660416"].includes(msg.author.id)) {
       msg.react(msg.guild.emojis.get("800821317796102210"));
    }
@@ -864,6 +864,13 @@ client.on('message', msg => {
       }
    }
    
+});
+
+client.on("messageUpdate", (oldMessage, newMessage) => {
+   let mcheck = newMessage.content.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\|]/g, "").split(" ");
+   if (mcheck.includes("m") && !["308756179109281792", "472389625705660416"].includes(newMessage.author.id)) {
+      newMessage.react(newMessage.guild.emojis.get("800821317796102210"));
+   }
 });
 
 // login to the bot (auth.json is in .gitignore as the token is sensitive data)
