@@ -4,11 +4,14 @@ auth.json
 # Ignore giant node_modules directory, instead use package-lock.json
 node_modules
 
-# Ignore the constant updates to members' points
-info.json
+# Ignore concurrent data updates
+data.json
 
 # Ignore audio files
 *.mp3 
 
 # Ignore scripts
 scripts/
+
+# Ignore private but global/process variables
+globals.json
